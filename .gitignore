@@ -2,3 +2,6 @@
 план работы.xlsx
 template_examples/
 .idea/
+node_modules/
+e2e/
+src/environments/
