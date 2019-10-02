@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MenuComponent } from './components/menu/menu.component';
+import { NavComponent } from './components/nav/nav.component';
 import { HeaderComponent } from './components/header/header.component';
-
-
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
-    MenuComponent,
-    HeaderComponent],
+    HeaderComponent,
+    NavComponent,
+    ButtonComponent
+  ],
   imports: [
     CommonModule
   ],

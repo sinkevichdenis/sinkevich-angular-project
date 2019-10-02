@@ -1,3 +1,24 @@
 header
-  height: 8rem
-  background-color: green
+  height: 12rem
+  position: relative
+  font-size: 1rem
+
+  @media (max-width: 576px)
+    height: 8rem
+    font-size: .6rem
+
+  & .background
+    background: url('src/assets/header_back_image.jpg') center center
+    background-size: cover
+    filter: alpha(Opacity=30)
+    opacity: .3
+
+  & .container
+    background-color: transparent
+    filter: alpha(Opacity=100)
+    opacity: 1
+
+  & .background, & .container
+    height: 100%
+    width: 100%
+    position: absolute

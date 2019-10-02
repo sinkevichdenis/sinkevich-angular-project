@@ -1,0 +1,29 @@
+@import "./src/app/general/styles/variables.sass"
+
+.nav-button
+  width: 10em
+  height: 2.5em
+  margin-bottom: 1em
+
+  background: $backLight
+  border: 1px solid $backHover
+  border-radius: 1em
+  box-shadow: 0 .5em 1em rgba(0,0,0,0.5)
+
+  line-height: 2.5em
+  text-align: center
+  font-weight: bold
+
+  transition: .3s
+
+  &:active
+    color: $fontLight
+    background: $backDark
+
+  &:hover
+    color: $fontLight
+    background: $backHover
+
+  & span
+    font-size: 1.2em
+
