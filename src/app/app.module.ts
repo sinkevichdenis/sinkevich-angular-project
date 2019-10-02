@@ -1,8 +1,14 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule } from './modules/routing/app-routing.module';
 import { AppComponent } from './app.component';
+
+// feature modules
+import { MainModule } from './modules/main/main.module';
+import { FooterModule } from './modules/footer/footer.module';
+import { HeaderModule } from './modules/header/header.module';
+import { CpaModule } from './modules/cpa/cpa.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +16,11 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HeaderModule,
+    MainModule,
+    FooterModule,
+    CpaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
