@@ -1,4 +1,4 @@
-@import "./src/app/general/styles/variables.sass"
+@import "./src/app/general/styles/variables"
 
 .nav-button
   width: 10em
@@ -14,15 +14,17 @@
   text-align: center
   font-weight: bold
 
-  transition: .3s
+  transition: .2s
+  cursor: pointer
+
+  &:hover
+    color: $fontLight
+    background: $backHover
 
   &:active
     color: $fontLight
     background: $backDark
 
-  &:hover
-    color: $fontLight
-    background: $backHover
 
   & span
     font-size: 1.2em
