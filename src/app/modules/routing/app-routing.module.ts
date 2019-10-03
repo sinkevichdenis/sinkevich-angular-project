@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { HomeComponent } from '../main/components/pages/home/home.component';
-import { ErrorComponent } from '../main/components/pages/error/error.component';
-import { ContactsComponent } from '../main/components/pages/contacts/contacts.component';
-import { FeedbacksComponent } from '../main/components/pages/feedbacks/feedbacks.component';
-import { AccountComponent } from '../main/components/pages/account/account.component';
+import { HomePageComponent } from '../main/components/pages/home-page/home-page.component';
+import { ErrorPageComponent } from '../main/components/pages/error-page/error-page.component';
+import { ContactsPageComponent } from '../main/components/pages/contacts-page/contacts-page.component';
+import { FeedbacksPageComponent } from '../main/components/pages/feedbacks-page/feedbacks-page.component';
+import { AccountPageComponent } from '../main/components/pages/account-page/account-page.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'account', component: AccountComponent, pathMatch: 'full' },
-  { path: 'contacts', component: ContactsComponent, pathMatch: 'full' },
-  { path: 'feedbacks', component: FeedbacksComponent, pathMatch: 'full' },
-  { path: '**', component: ErrorComponent }
+  { path: '', component: HomePageComponent, pathMatch: 'full' },
+  { path: 'account', component: AccountPageComponent, pathMatch: 'full' },
+  { path: 'contacts', component: ContactsPageComponent, pathMatch: 'full' },
+  { path: 'feedbacks', component: FeedbacksPageComponent, pathMatch: 'full' },
+  { path: '**', component: ErrorPageComponent }
 ];
 
 @NgModule({
