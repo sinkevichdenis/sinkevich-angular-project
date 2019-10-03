@@ -4,14 +4,14 @@ import { CommonModule } from '@angular/common';
 
 import { NavComponent } from './components/nav/nav.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ButtonComponent } from './components/button/button.component';
+import { NavButtonComponent } from './components/nav-button/nav-button.component';
 import { AppRoutingModule } from '../routing/app-routing.module';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     NavComponent,
-    ButtonComponent
+    NavButtonComponent
   ],
   imports: [
     CommonModule,
