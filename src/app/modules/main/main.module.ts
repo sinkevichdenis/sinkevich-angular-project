@@ -8,6 +8,7 @@ import { ContactsPageComponent } from './components/pages/contacts-page/contacts
 import { FeedbacksPageComponent } from './components/pages/feedbacks-page/feedbacks-page.component';
 import { ErrorPageComponent } from './components/pages/error-page/error-page.component';
 import { AccountPageComponent } from './components/pages/account-page/account-page.component';
+import { CpaModule } from '../cpa/cpa.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AccountPageComponent } from './components/pages/account-page/account-pa
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    CpaModule
   ],
   exports: [
     MainComponent
