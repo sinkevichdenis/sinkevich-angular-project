@@ -1,0 +1,7 @@
+<section class="carousel">
+  <ng-template ngFor let-slide [ngForOf]="slides">
+    <app-slide
+      [slideData] = slide>
+    </app-slide>
+  </ng-template>
+</section>
