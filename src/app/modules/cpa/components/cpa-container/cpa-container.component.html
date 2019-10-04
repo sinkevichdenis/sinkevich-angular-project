@@ -1,6 +1,4 @@
-<p>cpa-container works!</p>
-
-<nav mat-tab-nav-bar>
+<nav mat-tab-nav-bar >
   <a mat-tab-link
      *ngFor="let link of links"
      [routerLink]="link.path"
@@ -11,21 +9,4 @@
   </a>
 </nav>
 
-<mat-tab-group>
-  <mat-tab  label="One">
-    <h1>Some tab content</h1>
-  </mat-tab>
-  <mat-tab label="Two">
-    <h1>Some more tab content</h1>
-  </mat-tab>
-</mat-tab-group>
-
-<mat-tab-group>
-  <mat-tab  label="One">
-    <h1>Some tab content</h1>
-  </mat-tab>
-  <mat-tab label="Two">
-    <h1>Some more tab content</h1>
-  </mat-tab>
-</mat-tab-group>
 <router-outlet></router-outlet>

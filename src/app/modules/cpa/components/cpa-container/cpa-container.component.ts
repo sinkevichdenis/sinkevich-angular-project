@@ -1,15 +1,11 @@
-import {Component, Input} from '@angular/core';
-
-export interface Nav {
-  path: string;
-  name: string;
-  exact: boolean;
-}
+import {Component, ViewEncapsulation} from '@angular/core';
+import {Nav} from '../../../../models/nav.interface';
 
 @Component({
   selector: 'app-cpa-container',
   templateUrl: './cpa-container.component.html',
-  styleUrls: ['./cpa-container.component.sass']
+  styleUrls: ['./cpa-container.component.sass'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CpaContainerComponent {
   links: Nav[] = [
@@ -30,7 +26,7 @@ export class CpaContainerComponent {
     },
     {
       path: 'history',
-      name: 'История платежей',
+      name: 'История',
       exact: true
     }
   ];
