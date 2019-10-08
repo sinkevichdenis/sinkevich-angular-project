@@ -1,5 +1,5 @@
-import {AfterViewInit, Component} from '@angular/core';
-import {Slide} from '../../../../../../models/slide.interface';
+import { AfterViewInit, Component} from '@angular/core';
+import { Slide } from '../../../../../../models/slide.interface';
 
 @Component({
   selector: 'app-carousel',

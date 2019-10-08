@@ -1,0 +1,18 @@
+<div class="container" [style.background-color]="benefitData.color">
+  <div class="title">
+    <span>{{benefitData.title}}</span>
+  </div>
+  <div class="content">
+    <ul>
+      <li *ngFor="let text of benefitData.text">
+        {{text}}
+      </li>
+    </ul>
+    <div class="summary">
+      <img src="./assets/like-icon.png" alt="like-icon">
+      <span>
+        <strong>{{benefitData.summary}}</strong>
+      </span>
+    </div>
+  </div>
+</div>

@@ -8,5 +8,4 @@ import { Slide } from '../../../../../../models/slide.interface';
 })
 export class SlideComponent {
   @Input() slideData: Slide;
-  @Input() index: number;
 }

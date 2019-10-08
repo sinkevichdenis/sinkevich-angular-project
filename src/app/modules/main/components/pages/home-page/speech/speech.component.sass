@@ -1,0 +1,60 @@
+@import "./src/app/general/styles/variables"
+
+.container
+  margin: 0 0 4em
+
+  @media (max-width: 576px)
+    font-size: .85em
+
+  & .text
+    width: 24em
+    height: 2.5em
+    position: relative
+
+    background-color: $feedbackBack
+    border: 8px solid $feedbackBorder
+    border-radius: 30px
+    box-shadow: 2px 2px 4px #888
+    opacity: .9
+
+    padding: 1em .5em
+    text-align: center
+    font-size: 1.3em
+    font-family: Arial
+    font-style: italic
+
+    @media (max-width: 576px)
+      width: 14em
+      height: 4.5em
+
+    &:after, &:before
+      content: ' '
+      width: 0
+      height: 0
+      position: absolute
+      top: 4.5em
+
+      @media (max-width: 576px)
+        top: 6.5em
+
+    &:before
+      left: 30px
+      border: 25px solid
+      border-color: $feedbackBorder transparent transparent $feedbackBorder
+
+    &:after
+      left: 38px
+      border: 15px solid
+      border-color: $feedbackBack transparent transparent $feedbackBack
+
+  & .name
+    position: relative
+    top: 2em
+    opacity: .8
+
+    font-size: 1.4em
+    font-weight: bold
+    font-style: italic
+
+  & .city
+    font-size: .8em

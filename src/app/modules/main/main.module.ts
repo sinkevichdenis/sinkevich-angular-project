@@ -16,6 +16,8 @@ import { AccountPageComponent } from './components/pages/account-page/account-pa
 // structural components
 import { SlideComponent } from './components/pages/home-page/slide/slide.component';
 import { CarouselComponent } from './components/pages/home-page/carousel/carousel.component';
+import { SpeechComponent } from './components/pages/home-page/speech/speech.component';
+import { BenefitComponent } from './components/pages/home-page/benefit/benefit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { CarouselComponent } from './components/pages/home-page/carousel/carouse
     ErrorPageComponent,
     AccountPageComponent,
     SlideComponent,
-    CarouselComponent
+    CarouselComponent,
+    SpeechComponent,
+    BenefitComponent
   ],
   imports: [
     CommonModule,

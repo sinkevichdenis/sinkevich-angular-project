@@ -1,2 +1,28 @@
 <app-carousel></app-carousel>
+  <section class="page home page-container">
+    <p class="block-title">
+      Домашний бухгалтер - это онлайн система для улучшения Вашего финансового положения:
+    </p>
+    <div class="container benefit-container">
+      <ng-template ngFor let-x [ngForOf]="benefits">
+        <app-benefit
+          [benefitData] = x>
+        </app-benefit>
+      </ng-template>
+    </div>
+    <div class="speech-container">
+      <p class="speech-title">
+        Что думают о нас окружающие?
+      </p>
+      <hr>
+      <div class="container mobile">
+        <app-speech [speechData] = feedbacks[0]></app-speech>
+        <app-speech [speechData] = feedbacks[1]></app-speech>
+      </div>
+      <div class="container screen">
+        <app-speech [speechData] = feedbacks[2] [ngClass] = "invert"></app-speech>
+        <app-speech [speechData] = feedbacks[3]></app-speech>
+      </div>
+    </div>
+</section>
 
