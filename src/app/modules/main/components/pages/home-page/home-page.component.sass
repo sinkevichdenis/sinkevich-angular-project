@@ -11,10 +11,6 @@ section
     @media (max-width: 1200px)
       flex-direction: column
 
-    &.screen
-      @media (max-width: 1200px)
-        display: none
-
   .block-title, .speech-title
     max-width: 30em
     margin: 1em auto 0
@@ -51,3 +47,6 @@ section
   .speech-container
     padding: 0 1em
 
+    &__screen
+      @media (max-width: 1200px)
+        display: none

@@ -15,12 +15,12 @@
         Что думают о нас окружающие?
       </p>
       <hr>
-      <div class="container mobile">
-        <app-speech [speechData] = feedbacks[0]></app-speech>
+      <div class="container speech-container__mobile">
+        <app-speech [speechData] = feedbacks[0] [invert] = true></app-speech>
         <app-speech [speechData] = feedbacks[1]></app-speech>
       </div>
-      <div class="container screen">
-        <app-speech [speechData] = feedbacks[2] [ngClass] = "invert"></app-speech>
+      <div class="container speech-container__screen">
+        <app-speech [speechData] = feedbacks[2] [invert] = true></app-speech>
         <app-speech [speechData] = feedbacks[3]></app-speech>
       </div>
     </div>

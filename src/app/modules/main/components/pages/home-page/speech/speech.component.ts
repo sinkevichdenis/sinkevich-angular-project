@@ -8,4 +8,5 @@ import { Feedback } from '../../../../../../models/feedback.interface';
 })
 export class SpeechComponent {
   @Input() speechData: Feedback;
+  @Input() invert: boolean;
 }

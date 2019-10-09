@@ -1,7 +1,7 @@
-<div class="container">
-  <p class="text">{{speechData.text}}</p>
-  <p class="name">
+<div class="speech-wrap" [ngClass]="{'invert': invert }">
+  <p class="speech-text">{{speechData.text}}</p>
+  <p class="speech-name">
     {{speechData.name}}
-    <span class="city">({{speechData.city}})</span>
+    <span class="speech-city">({{speechData.city}})</span>
   </p>
 </div>

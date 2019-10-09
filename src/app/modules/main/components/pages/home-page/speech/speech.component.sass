@@ -1,12 +1,13 @@
 @import "./src/app/general/styles/variables"
 
-.container
-  margin: 0 0 4em
+.speech
+  &-wrap
+    margin: 0 0 4em
 
-  @media (max-width: 576px)
-    font-size: .85em
+    @media (max-width: 576px)
+      font-size: .85em
 
-  & .text
+  &-text
     width: 24em
     height: 2.5em
     position: relative
@@ -38,23 +39,45 @@
         top: 6.5em
 
     &:before
-      left: 30px
+      left: 3em
       border: 25px solid
       border-color: $feedbackBorder transparent transparent $feedbackBorder
 
     &:after
-      left: 38px
+      left: 3.4em
       border: 15px solid
       border-color: $feedbackBack transparent transparent $feedbackBack
 
-  & .name
+  &-name
     position: relative
     top: 2em
+    left: 1em
     opacity: .8
 
     font-size: 1.4em
     font-weight: bold
     font-style: italic
 
-  & .city
+  &-city
     font-size: .8em
+
+  &-wrap.invert &-text:before
+    left: 19em
+    border-color: $feedbackBorder $feedbackBorder transparent transparent
+
+    @media (max-width: 576px)
+      left: 9em
+
+  &-wrap.invert &-text:after
+    left: 19.6em
+    border-color: $feedbackBack $feedbackBack transparent transparent
+
+    @media (max-width: 576px)
+      left: 9.6em
+
+  &-wrap.invert &-name
+    left: 15em
+
+    @media (max-width: 576px)
+      left: 6em
+

@@ -62,6 +62,4 @@ export class HomePageComponent {
       color: '#0087ffc7'
     }
   ];
-
-
 }
