@@ -1,3 +1,45 @@
+@import "./src/app/general/styles/variables"
+
 footer
-  height: 6rem
-  background-color: blue
+  min-height: 6em
+  padding: 1em .3em .6em
+
+  display: flex
+  justify-content: space-evenly
+  align-items: center
+
+  background: linear-gradient( 0deg, #948A8A, $backPage)
+
+  .#{&}-logo, .#{&}-empty
+    height: 6em
+    width: 6em
+    margin: .5em
+
+    & img
+      height: 90%
+      opacity: .5
+
+  .#{&}-text
+    text-align: center
+    text-shadow: 0 0 5px white
+    opacity: .8
+
+    font-weight: bold
+    font-style: italic
+    font-family: Arial
+
+    @media (max-width: 768px)
+      font-size: .8em
+      max-width: 20em
+
+    @media (max-width: 576px)
+      max-width: 20em
+      font-size: .6em
+      letter-spacing: .8px
+
+    p
+      margin: .4em 0
+
+  .#{&}-empty
+    @media (max-width: 768px)
+      display: none
