@@ -1,0 +1,20 @@
+<div class="name input">
+  <label>
+    <ng-content select=".name"> </ng-content>
+    <input name="name" type="text">
+  </label>
+</div>
+
+<div class="password input">
+  <label>
+    <p>Пароль: </p>
+    <input name="password" type="password">
+  </label>
+</div>
+
+<ng-content select=".other"></ng-content>
+
+<button>
+  <ng-content select=".button"></ng-content>
+</button>
+

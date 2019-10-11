@@ -29,13 +29,11 @@ section
     height: 100%
     width: calc(100% - 17em)
     font-size: 1.5em
-    border-right: 2px solid $backDark
+    font-family: Arial
     order: 1
 
     @media (max-width: 992px)
       width: 100%
-      border-right: 0
-      border-top: 2px solid $backDark
       order: 10
 
     & img
@@ -64,12 +62,14 @@ section
   &-tabs
     max-width: 25em
     padding: 0 1em
+    border-left: 2px solid $backDark
     order: 5
 
     @media (max-width: 992px)
       max-width: 100%
       padding: 0
       border-left: 0
+      border-bottom: 2px solid $backDark
 
     ::ng-deep & mat-tab-header.mat-tab-header
       align-items: center
@@ -93,11 +93,68 @@ section
     ::ng-deep & .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination
       visibility: hidden
 
-    ::ng-deep & .mat-tab-group.mat-primary .mat-ink-bar,
-    & .mat-tab-nav-bar.mat-primary .mat-ink-bar
+    ::ng-deep & .mat-tab-group.mat-primary .mat-ink-bar
       height: 3px
       background-color: $backDark
 
+    ::ng-deep & .mat-tab-body-content
+      display: flex
+      flex-direction: column
+      width: 100%
+
+    ::ng-deep & .mat-tab-body
+      max-width: 25em
+      padding: 1.2em
+      margin: 0 auto
+
+      ::ng-deep & input
+        width: 95%
+        height: 2em
+        border-radius: .5em
+        border-color: $backLight
+
+        &:hover
+          border-color: $backDark
+          box-shadow: 0 0 .5em grey
+
+        &:focus
+          border-color: $backDark
+          box-shadow: 0 0 .6em black
+
+
+      ::ng-deep & p
+        margin: .5em
+
+      ::ng-deep & button
+        margin: 1em 2.5em
+        width: 70%
+        font-size: 1.3em
+        font-weight: bold
+        color: white
+        border-radius: .5em
+        background-color: $backDark
+        transition: background-color .3s
+        cursor: pointer
+
+        @media (max-width: 992px)
+          margin: 1em 2.8em
+
+        &:hover
+          color: black
+          background-color: $backLight
+
+        &:active
+          transition: .05s
+          box-shadow: 0 0 1em black
+
+::ng-deep div.input
+  text-align: center
+  & p
+    text-align: left
+    text-indent: 1em
+    font-size: 1.2em
+    font-weight: bold
+    opacity: .8
 
 
 

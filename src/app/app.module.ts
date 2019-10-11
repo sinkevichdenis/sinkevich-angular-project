@@ -13,7 +13,7 @@ import { CpaModule } from './modules/cpa/cpa.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

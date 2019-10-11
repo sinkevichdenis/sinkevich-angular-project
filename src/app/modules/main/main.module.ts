@@ -21,6 +21,7 @@ import { SpeechComponent } from './components/pages/home-page/speech/speech.comp
 import { BenefitComponent } from './components/pages/home-page/benefit/benefit.component';
 import { LoginComponent } from './components/pages/account-page/login/login.component';
 import { RegistrationComponent } from './components/pages/account-page/registration/registration.component';
+import { EnterFormComponent } from './components/pages/account-page/enter-form/enter-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RegistrationComponent } from './components/pages/account-page/registrat
     SpeechComponent,
     BenefitComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    EnterFormComponent
   ],
   imports: [
     CommonModule,
