@@ -1,16 +1,32 @@
-.mat-tab-links
-  justify-content: center
+@import "./src/app/general/styles/variables"
 
-.mat-tab-links .mat-tab-link
-  color: black
-  font-size: 1.3em
-  font-weight: bold
+.mat-tab
+  &-links
+    justify-content: center
 
-  @media (max-width: 992px)
-    min-width: 7em
-    font-size: 1em
+  &-links &-link
+    color: black
+    font-size: 1.3em
+    font-weight: bold
 
-  @media (max-width: 576px)
-    min-width: 5em
-    padding: 1em
-    font-size: .8em
+    @media (max-width: 992px)
+      min-width: 7em
+      font-size: 1em
+
+    @media (max-width: 576px)
+      min-width: 5em
+      padding: .7em
+      font-size: .8em
+
+    @media (max-width: 370px)
+      min-width: 4em
+      padding: .6em
+      font-size: .7em
+
+  &-nav-bar.mat-primary .mat-ink-bar
+    height: 3px
+    background-color: $backDark
+
+  &-header-pagination-controls-enabled &-header-pagination
+    @media (max-width: 370px)
+      visibility: hidden

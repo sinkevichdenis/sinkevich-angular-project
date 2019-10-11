@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 // feature modules
 import { CpaModule } from '../cpa/cpa.module';
+import { MatTabsModule } from '@angular/material/tabs';
 
 // page-container components
 import { MainComponent } from './components/main/main.component';
@@ -18,6 +19,8 @@ import { SlideComponent } from './components/pages/home-page/slide/slide.compone
 import { CarouselComponent } from './components/pages/home-page/carousel/carousel.component';
 import { SpeechComponent } from './components/pages/home-page/speech/speech.component';
 import { BenefitComponent } from './components/pages/home-page/benefit/benefit.component';
+import { LoginComponent } from './components/pages/account-page/login/login.component';
+import { RegistrationComponent } from './components/pages/account-page/registration/registration.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +33,15 @@ import { BenefitComponent } from './components/pages/home-page/benefit/benefit.c
     SlideComponent,
     CarouselComponent,
     SpeechComponent,
-    BenefitComponent
+    BenefitComponent,
+    LoginComponent,
+    RegistrationComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    CpaModule
+    CpaModule,
+    MatTabsModule
   ],
   exports: [
     MainComponent

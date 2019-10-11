@@ -1,0 +1,111 @@
+@import "./src/app/general/styles/variables"
+
+section
+  height: 100%
+  font-size: 1rem
+
+  @media (max-width: 1200px)
+    font-size: .8rem
+
+  @media (max-width: 576px)
+    font-size: .6rem
+
+.account
+  &-container
+    &__logined
+      height: 3em
+      padding: 1em
+      text-align: center
+      background-color: #5065A6
+
+    &__unlogined
+      padding: 1.3em
+      display: flex
+
+      @media (max-width: 992px)
+        flex-direction: column
+
+  &-content
+    height: 100%
+    width: calc(100% - 17em)
+    font-size: 1.5em
+    border-right: 2px solid $backDark
+    order: 1
+
+    @media (max-width: 992px)
+      width: 100%
+      border-right: 0
+      border-top: 2px solid $backDark
+      order: 10
+
+    & img
+      max-width: 10em
+      margin: 1em
+
+      @media (max-width: 992px)
+        max-width: 8em
+
+    &__top
+      display: flex
+      align-items: center
+
+  &-title
+    font-size: 1.4em
+    font-weight: bold
+    opacity: .85
+
+  &-text
+    text-align: center
+
+    &__small
+      text-align: center
+      font-size: .8em
+
+  &-tabs
+    max-width: 25em
+    padding: 0 1em
+    order: 5
+
+    @media (max-width: 992px)
+      max-width: 100%
+      padding: 0
+      border-left: 0
+
+    ::ng-deep & mat-tab-header.mat-tab-header
+      align-items: center
+      flex-direction: column
+
+    ::ng-deep & div.mat-tab-label
+      padding: .5em 0em
+
+      & .mat-tab-label-content
+        color: black
+        padding: .5em 1em
+        font-size: 1.5em
+        font-weight: bold
+
+        @media (max-width: 1200px)
+          font-size: 1.2em
+
+        @media (max-width: 576px)
+          font-size: .9em
+
+    ::ng-deep & .mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination
+      visibility: hidden
+
+    ::ng-deep & .mat-tab-group.mat-primary .mat-ink-bar,
+    & .mat-tab-nav-bar.mat-primary .mat-ink-bar
+      height: 3px
+      background-color: $backDark
+
+
+
+
+
+
+
+
+
+
+
+
