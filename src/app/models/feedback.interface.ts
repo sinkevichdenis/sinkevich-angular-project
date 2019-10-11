@@ -1,7 +1,6 @@
-export interface Feedback {
-  name: string;
+import { Visitor } from './visitor.interface';
+
+export interface Feedback extends Visitor {
   text: string;
-  city: string;
   stars: number|null;
-  data?: number;
 }
