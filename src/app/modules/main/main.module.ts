@@ -19,9 +19,7 @@ import { SlideComponent } from './components/pages/home-page/slide/slide.compone
 import { CarouselComponent } from './components/pages/home-page/carousel/carousel.component';
 import { SpeechComponent } from './components/pages/home-page/speech/speech.component';
 import { BenefitComponent } from './components/pages/home-page/benefit/benefit.component';
-import { LoginComponent } from './components/pages/account-page/login/login.component';
-import { RegistrationComponent } from './components/pages/account-page/registration/registration.component';
-import { EnterFormComponent } from './components/pages/account-page/enter-form/enter-form.component';
+import {AuthModule} from '../auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -34,16 +32,14 @@ import { EnterFormComponent } from './components/pages/account-page/enter-form/e
     SlideComponent,
     CarouselComponent,
     SpeechComponent,
-    BenefitComponent,
-    LoginComponent,
-    RegistrationComponent,
-    EnterFormComponent
+    BenefitComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     CpaModule,
-    MatTabsModule
+    MatTabsModule,
+    AuthModule
   ],
   exports: [
     MainComponent

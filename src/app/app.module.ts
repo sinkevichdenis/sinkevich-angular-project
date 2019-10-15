@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { MainModule } from './modules/main/main.module';
 import { FooterModule } from './modules/footer/footer.module';
 import { HeaderModule } from './modules/header/header.module';
-import { CpaModule } from './modules/cpa/cpa.module';
 
 @NgModule({
   declarations: [
@@ -20,8 +19,7 @@ import { CpaModule } from './modules/cpa/cpa.module';
     AppRoutingModule,
     HeaderModule,
     MainModule,
-    FooterModule,
-    CpaModule
+    FooterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

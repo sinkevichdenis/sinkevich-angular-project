@@ -12,10 +12,7 @@ import { BalancePageComponent } from './components/pages/balance-page/balance-pa
 import { PlusPageComponent } from './components/pages/plus-page/plus-page.component';
 import { MinusPageComponent } from './components/pages/minus-page/minus-page.component';
 import { HistoryPageComponent } from './components/pages/history-page/history-page.component';
-import { CpaNavComponent } from './components/cpa-nav/cpa-nav.component';
-import { CpaNavButtonComponent } from './components/cpa-nav-button/cpa-nav-button.component';
 import { CpaContainerComponent } from './components/cpa-container/cpa-container.component';
-
 
 @NgModule({
   declarations: [
@@ -23,8 +20,6 @@ import { CpaContainerComponent } from './components/cpa-container/cpa-container.
     PlusPageComponent,
     MinusPageComponent,
     HistoryPageComponent,
-    CpaNavComponent,
-    CpaNavButtonComponent,
     CpaContainerComponent
   ],
   imports: [

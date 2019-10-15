@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CpaNavButtonComponent } from './cpa-nav-button.component';
+import { AuthContainerComponent } from './auth-container.component';
 
-describe('CpaNavButtonComponent', () => {
-  let component: CpaNavButtonComponent;
-  let fixture: ComponentFixture<CpaNavButtonComponent>;
+describe('AuthContainerComponent', () => {
+  let component: AuthContainerComponent;
+  let fixture: ComponentFixture<AuthContainerComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CpaNavButtonComponent ]
+      declarations: [ AuthContainerComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CpaNavButtonComponent);
+    fixture = TestBed.createComponent(AuthContainerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
