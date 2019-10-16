@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 
 // library modules
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
 
@@ -12,7 +11,14 @@ import { BalancePageComponent } from './components/pages/balance-page/balance-pa
 import { PlusPageComponent } from './components/pages/plus-page/plus-page.component';
 import { MinusPageComponent } from './components/pages/minus-page/minus-page.component';
 import { HistoryPageComponent } from './components/pages/history-page/history-page.component';
-import { CpaContainerComponent } from './components/cpa-container/cpa-container.component';
+import { CpaComponent } from './cpa.component';
+
+const routes: Route[] = [
+  { path: 'history', component: HistoryPageComponent, pathMatch: 'full' },
+  { path: 'plus', component: PlusPageComponent, pathMatch: 'full' },
+  { path: 'minus', component: MinusPageComponent, pathMatch: 'full' },
+  { path: 'balance', component: BalancePageComponent, pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
@@ -20,17 +26,16 @@ import { CpaContainerComponent } from './components/cpa-container/cpa-container.
     PlusPageComponent,
     MinusPageComponent,
     HistoryPageComponent,
-    CpaContainerComponent
+    CpaComponent
   ],
   imports: [
     CommonModule,
-    RouterModule,
-    BrowserAnimationsModule,
+    RouterModule.forChild(routes),
     MatTabsModule,
     MatToolbarModule
   ],
   exports: [
-    CpaContainerComponent
+    CpaComponent
   ]
 })
 export class CpaModule { }

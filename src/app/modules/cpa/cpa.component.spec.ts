@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CpaContainerComponent } from './cpa-container.component';
+import { CpaContainerComponent } from './cpa.component';
 
 describe('CpaContainerComponent', () => {
   let component: CpaContainerComponent;

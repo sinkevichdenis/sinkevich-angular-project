@@ -1,13 +1,13 @@
-import {Component, ViewEncapsulation} from '@angular/core';
-import {Nav} from '../../../../models/nav.interface';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { Nav } from '../../models/nav.interface';
 
 @Component({
-  selector: 'app-cpa-container',
-  templateUrl: './cpa-container.component.html',
-  styleUrls: ['./cpa-container.component.sass'],
+  selector: 'app-cpa',
+  templateUrl: './cpa.component.html',
+  styleUrls: ['./cpa.component.sass'],
   encapsulation: ViewEncapsulation.None
 })
-export class CpaContainerComponent {
+export class CpaComponent {
   links: Nav[] = [
     {
       path: 'balance',

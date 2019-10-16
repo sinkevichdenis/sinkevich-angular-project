@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Feedback } from '../../../../../../models/feedback.interface';
+import { Feedback } from '../../../../models/feedback.interface';
 
 @Component({
   selector: 'app-speech',
