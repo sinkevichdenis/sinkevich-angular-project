@@ -1,21 +1,27 @@
-<app-enter-form>
-  <p class="name">Имя:</p>
-  <p class="button">Зарегистрироваться</p>
+<form [formGroup]="regForm">
+  <label>
+    <p class="name">Имя:</p>
+    <input formControlName="name" type="text">
+  </label>
 
-  <div class="other input">
-    <div class="passwordRepeat">
-      <label>
-        <p>Пароль еще раз:</p>
-        <input name="passwordRepeat" type="password">
-      </label>
-    </div>
+  <label>
+    <p>Пароль: </p>
+    <input formControlName="password" type="password">
+  </label>
 
-    <div class="email input">
-      <label>
-        <p>Email:</p>
-        <input name="email" type="email">
-      </label>
-    </div>
-  </div>
+  <label>
+    <p>Пароль еще раз:</p>
+    <input formControlName="passwordRepeat" type="password">
+  </label>
 
-</app-enter-form>
+  <label>
+    <p>Email:</p>
+    <input formControlName="email" type="email">
+  </label>
+
+  <button>
+    Зарегистрироваться
+  </button>
+</form>
+
+{{regForm.value | json}}}

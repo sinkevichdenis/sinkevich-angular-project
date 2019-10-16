@@ -131,13 +131,13 @@ section
 
     ::ng-deep & .mat-tab-body
       max-width: 25em
-      padding: 1.2em
+      padding: .2em 1.2em 1.2em 2em
       margin: 0 auto
 
       ::ng-deep & input
         width: 85%
         height: 2em
-        padding-left: .5em
+        padding-left: 1em
         border-radius: .5em
         border-color: $backLight
         font-size: 1.2em
@@ -155,6 +155,7 @@ section
 
       ::ng-deep & button
         margin: 1em 2.5em
+        padding: .5em .2em
         width: 70%
         font-size: 1.3em
         font-weight: bold
@@ -175,11 +176,11 @@ section
           transition: .05s
           box-shadow: 0 0 1em black
 
-::ng-deep div.input
+::ng-deep form
   text-align: center
-  & p
-    text-align: left
-    text-indent: 1em
-    font-size: 1.2em
-    font-weight: bold
-    opacity: .8
+::ng-deep label p
+  text-align: left
+  text-indent: 1.5em
+  font-size: 1.2em
+  font-weight: bold
+  opacity: .8

@@ -1,5 +1,17 @@
-<app-enter-form>
-  <p class="name">Имя или email:</p>
+<form [formGroup]="logForm">
+  <label>
+    <p class="name">Имя или email:</p>
+    <input formControlName="name" type="text">
+  </label>
 
-  <p class="button">Войти</p>
-</app-enter-form>
+  <label>
+    <p>Пароль: </p>
+    <input formControlName="password" type="password">
+  </label>
+
+  <button>
+    Войти
+  </button>
+</form>
+
+{{logForm.value | json}}

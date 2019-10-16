@@ -1,15 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
+import {FormBuilder, FormGroup, FormControl} from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.sass']
+  templateUrl: './registration.component.html'
 })
-export class RegistrationComponent implements OnInit {
+export class RegistrationComponent  {
 
-  constructor() { }
+  regForm: FormGroup;
 
-  ngOnInit() {
+  constructor(private fb: FormBuilder) {
+    this.regForm = fb.group({
+      name: ['11'],
+      password: [''],
+      passwordRepeat: [''],
+      email: ['222']
+    });
   }
-
 }
