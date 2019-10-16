@@ -1,6 +1,6 @@
-import { Visitor } from './visitor.interface';
+import { UserDefault } from './userDefault.interface';
 
-export interface Feedback extends Visitor {
+export interface Feedback extends UserDefault {
   text: string;
   stars: number|null;
 }

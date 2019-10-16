@@ -150,6 +150,9 @@ section
           border-color: $backDark
           box-shadow: 0 0 .6em black
 
+        &.ng-invalid.ng-touched
+          border-color: red
+
       ::ng-deep & p
         margin: .5em
 
@@ -168,6 +171,13 @@ section
         @media (max-width: 992px)
           margin: 1em 2.8em
 
+        &[disabled]
+          opacity: .5
+          cursor: default
+
+          &:hover
+            background-color: indianred
+
         &:hover
           color: black
           background-color: $backLight
@@ -175,6 +185,7 @@ section
         &:active
           transition: .05s
           box-shadow: 0 0 1em black
+
 
 ::ng-deep form
   text-align: center
@@ -184,3 +195,7 @@ section
   font-size: 1.2em
   font-weight: bold
   opacity: .8
+
+  &.error
+    font-size: 1em
+    color: red

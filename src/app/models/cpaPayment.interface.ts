@@ -1,9 +1,9 @@
 import { CpaDefault } from './cpaDefault.interface';
 
-export interface Payment  extends CpaDefault {
+export interface CpaPayment  extends CpaDefault {
   dirId: number | string | null;
   data: number;
   currency: string;
   value: number;
-  name?: string;
+  text?: string;
 }

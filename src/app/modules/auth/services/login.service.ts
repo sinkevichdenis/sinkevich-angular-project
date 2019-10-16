@@ -8,8 +8,7 @@ export class LoginService {
   private user: User = {
     id: 1,
     name: 'Alex',
-    isLogin: false,
-    city: 'Minsk'
+    isLogin: false
   };
 
   constructor() {
