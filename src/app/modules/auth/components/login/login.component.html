@@ -1,17 +1,27 @@
-<form [formGroup]="logForm">
+<form [formGroup]="logForm" (ngSubmit)="onSubmit()" >
   <label>
-    <p class="name">Имя или email:</p>
+    <p class="name">Имя: </p>
     <input formControlName="name" type="text">
+    <p class="error" *ngIf="name.errors?.required && name.touched">
+      Введите имя
+    </p>
   </label>
 
   <label>
     <p>Пароль: </p>
     <input formControlName="password" type="password">
+    <p class="error" *ngIf="password.errors?.required && password.touched">
+      Введите пароль
+    </p>
   </label>
 
-  <button>
+
+  <button type="submit" [disabled]="name.errors?.required || password.errors?.required">
     Войти
   </button>
-</form>
 
-{{logForm.value | json}}
+  <p class="error" *ngIf="!isFormValid">
+    Введены неверные данные.
+  </p>
+
+</form>

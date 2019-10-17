@@ -1,5 +1,7 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 import { Nav } from '../../models/nav.interface';
+import { AuthService } from '../auth/services/auth.service';
+import { UserOnline } from '../../models/userOnline.interface';
 
 @Component({
   selector: 'app-cpa',
@@ -30,4 +32,12 @@ export class CpaComponent {
       exact: true
     }
   ];
+
+  private userOnline: UserOnline;
+
+  constructor() {
+    AuthService.userOnline$.subscribe(item => {
+      this.userOnline = item;
+    });
+  }
 }

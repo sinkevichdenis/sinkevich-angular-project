@@ -1,4 +1,4 @@
-<nav mat-tab-nav-bar >
+<nav *ngIf="userOnline.status" mat-tab-nav-bar >
   <a mat-tab-link
      *ngFor="let link of links"
      [routerLink]="link.path"

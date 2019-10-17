@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppRoutingModule } from './modules/routing/app-routing.module';
 
 import { FooterModule } from './modules/footer/footer.module';
@@ -11,6 +13,7 @@ import { FeedbacksPageModule } from './modules/feedbacks-page/feedbacks-page.mod
 import { HomePageModule } from './modules/home-page/home-page.module';
 import { ErrorPageModule } from './modules/error-page/error-page.module';
 import { AppComponent } from './app.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,9 @@ import { AppComponent } from './app.component';
     ContactsPageModule,
     FeedbacksPageModule,
     HomePageModule,
-    ErrorPageModule
+    ErrorPageModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

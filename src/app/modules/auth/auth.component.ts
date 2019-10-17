@@ -1,18 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService } from './services/login.service';
+import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { UserOnline} from '../../models/userOnline.interface';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.sass']
 })
-export class AuthComponent implements OnInit {
+export class AuthComponent {
+  private userOnline: UserOnline;
 
-  private authStatus = false;
+  constructor() {
+    AuthService.userOnline$.subscribe(item => {
+      this.userOnline = item;
+    });
+  }
 
-  constructor(public loginService: LoginService) { }
-
-  ngOnInit() {
+  exitUser() {
+    AuthService.userOnline$.next({user: null, status: false});
   }
 
 }
