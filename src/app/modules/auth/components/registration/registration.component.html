@@ -1,25 +1,73 @@
-<form [formGroup]="regForm">
-  <label>
+<form [formGroup]="regForm" (ngSubmit)="onSubmit()">
+    <label>
     <p class="name">Имя:</p>
     <input formControlName="name" type="text">
+    <ng-container *ngIf="name.touched">
+      <p class="error"
+         *ngIf="name.errors?.required">
+        Введите имя
+      </p>
+      <p class="error"
+         *ngIf="name.errors?.notUnique">
+        Это имя уже занято
+      </p>
+    </ng-container>
   </label>
 
   <label>
     <p>Пароль: </p>
-    <input formControlName="password" type="password">
+    <input
+      [ngClass]="{'ng-valid': confirmPassword.value === password.value,
+        'ng-invalid': confirmPassword.value !== password.value}"
+      formControlName="password"
+      type="password">
+    <ng-container *ngIf="password.touched">
+      <p class="error"
+         *ngIf="password.errors?.required">
+        Введите пароль
+      </p>
+      <p class="error"
+         *ngIf="password.errors?.minlength">
+        Слишком короткий пароль
+      </p>
+    </ng-container>
   </label>
 
   <label>
     <p>Пароль (повтор):</p>
-    <input formControlName="passwordRepeat" type="password">
+    <input
+      [ngClass]="{'ng-valid': confirmPassword.value === password.value,
+        'ng-invalid': confirmPassword.value !== password.value}"
+      formControlName="confirmPassword"
+      type="password">
+    <ng-container *ngIf="confirmPassword.touched">
+      <p class="error"
+         *ngIf="confirmPassword.errors?.required">
+        Введите пароль ещё раз
+      </p>
+      <p class="error"
+         *ngIf="confirmPassword.value !== password.value">
+        Пароли не совпадают
+      </p>
+    </ng-container>
   </label>
 
   <label>
     <p>Email:</p>
     <input formControlName="email" type="email">
+    <ng-container *ngIf="email.touched">
+    <p class="error"
+       *ngIf="email.errors?.required">
+      Введите email
+    </p>
+    <p class="error"
+       *ngIf="email.errors?.pattern">
+      Неверный email
+    </p>
+    </ng-container>
   </label>
 
-  <button>
+  <button type="submit" [disabled]="regForm.invalid || name.invalid">
     Зарегистрироваться
   </button>
 </form>

@@ -150,7 +150,8 @@ section
           border-color: $backDark
           box-shadow: 0 0 .6em black
 
-        &.ng-invalid.ng-touched
+        &.ng-touched.ng-invalid,
+        &.ng-touched .ng-invalid
           border-color: red
 
       ::ng-deep & p

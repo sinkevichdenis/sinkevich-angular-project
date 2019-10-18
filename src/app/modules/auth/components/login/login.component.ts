@@ -30,7 +30,7 @@ export class LoginComponent {
 
   validateUser( name = this.name.value, password = this.password.value ): void {
     const visitor = this.users.find(item => item.name === name);
-    let streamNext = {
+    const streamNext = {
       user: null,
       status: false
     };
@@ -40,7 +40,7 @@ export class LoginComponent {
       streamNext.status = !!streamNext.user;
       AuthService.userOnline$.next(streamNext);
     }
-    console.log('User Valid', streamNext.status);
+
     if (!streamNext.status) {
       this.isFormValid = false;
       setTimeout(() => this.isFormValid = true, 3000);

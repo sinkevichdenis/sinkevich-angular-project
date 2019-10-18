@@ -16,7 +16,7 @@
   </label>
 
 
-  <button type="submit" [disabled]="name.errors?.required || password.errors?.required">
+  <button type="submit" [disabled]="!logForm.valid">
     Войти
   </button>
 

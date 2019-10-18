@@ -13,7 +13,6 @@ export class FirebaseService {
 
   getItems<T>(dir: string): Observable<T[]> {
     return this.afs.collection(dir).snapshotChanges().pipe(
-      tap(item => console.log('tap', item[0].payload.doc.data())),
       map(changes => {
         return changes.map( x => {
           const data = x.payload.doc.data() as any;

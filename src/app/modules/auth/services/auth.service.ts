@@ -9,13 +9,20 @@ import { UserOnline } from '../../../models/userOnline.interface';
 })
 export class AuthService {
   static userOnline$ = new BehaviorSubject<UserOnline>({user: null, status: false});
+  private dbKey = 'users';
 
-  constructor(private fb: FirebaseService) {
-    this.fb.getSelectedValues<User>('users', 'id').subscribe(items => console.log(items));
-  }
+  constructor(private fb: FirebaseService) {}
 
   getUsers(): Observable<User[]> {
-    return this.fb.getItems<User>('users');
+    return this.fb.getItems<User>(this.dbKey);
+  }
+
+  addUsers(item: User): void {
+    this.fb.addItem(this.dbKey, item);
+  }
+
+  getSelectedValues(key: string): Observable<any[]> {
+    return this.fb.getSelectedValues<User>(this.dbKey, key);
   }
 
 }
