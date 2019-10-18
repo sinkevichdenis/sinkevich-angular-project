@@ -14,6 +14,7 @@ import { HomePageModule } from './modules/home-page/home-page.module';
 import { ErrorPageModule } from './modules/error-page/error-page.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { AuthGuard } from './modules/auth/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { environment } from '../environments/environment';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

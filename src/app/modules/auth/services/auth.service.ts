@@ -11,7 +11,8 @@ export class AuthService {
   static userOnline$ = new BehaviorSubject<UserOnline>({user: null, status: false});
   private dbKey = 'users';
 
-  constructor(private fb: FirebaseService) {}
+  constructor(private fb: FirebaseService) {
+  }
 
   getUsers(): Observable<User[]> {
     return this.fb.getItems<User>(this.dbKey);
@@ -24,5 +25,4 @@ export class AuthService {
   getSelectedValues(key: string): Observable<any[]> {
     return this.fb.getSelectedValues<User>(this.dbKey, key);
   }
-
 }
