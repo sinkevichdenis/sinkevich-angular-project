@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 import { Nav } from '../../models/nav.interface';
 import { AuthService } from '../auth/services/auth.service';
 import { UserOnline } from '../../models/userOnline.interface';
@@ -35,9 +36,12 @@ export class CpaComponent {
 
   private userOnline: UserOnline;
 
-  constructor() {
+  constructor(private router: Router) {
     AuthService.userOnline$.subscribe(item => {
       this.userOnline = item;
+      if (item.status) {
+        this.router.navigate(['/account/balance']);
+      }
     });
   }
 }

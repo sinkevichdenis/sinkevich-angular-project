@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppRoutingModule } from './modules/routing/app-routing.module';
+import { AuthGuard } from './modules/auth/guards/auth.guard';
 
 import { FooterModule } from './modules/footer/footer.module';
 import { HeaderModule } from './modules/header/header.module';
@@ -14,7 +15,6 @@ import { HomePageModule } from './modules/home-page/home-page.module';
 import { ErrorPageModule } from './modules/error-page/error-page.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
-import { AuthGuard } from './modules/auth/guards/auth.guard';
 
 @NgModule({
   declarations: [

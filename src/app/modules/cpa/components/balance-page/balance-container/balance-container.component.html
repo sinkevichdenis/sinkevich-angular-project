@@ -1,0 +1,17 @@
+<div class="balance-container">
+  <p class="balance-title">
+    <ng-content select=".title"></ng-content>
+  </p>
+  <div class="balance-part">
+    <p class="balanc-part_day"> День: <span>{{100 | currency}}</span> </p>
+  </div>
+  <div class="balance-part">
+    <p class="balanc-part_week"> Неделя: <span>{{1000 | currency}}</span> </p>
+  </div>
+  <div class="balance-part">
+    <p class="balanc-part_month"> Месяц: <span>{{7000 | currency}}</span> </p>
+  </div>
+  <button>
+    <ng-content select=".button"> </ng-content>
+  </button>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { UserOnline} from '../../models/userOnline.interface';
 
@@ -10,7 +11,7 @@ import { UserOnline} from '../../models/userOnline.interface';
 export class AuthComponent {
   private userOnline: UserOnline;
 
-  constructor() {
+  constructor(private router: Router) {
     AuthService.userOnline$.subscribe(item => {
       this.userOnline = item;
     });
@@ -18,6 +19,7 @@ export class AuthComponent {
 
   exitUser() {
     AuthService.userOnline$.next({user: null, status: false});
+    this.router.navigate(['/account']);
   }
 
 }

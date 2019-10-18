@@ -7,11 +7,12 @@ import { MatToolbarModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
 
 // feature components
-import { BalancePageComponent } from './components/pages/balance-page/balance-page.component';
-import { PlusPageComponent } from './components/pages/plus-page/plus-page.component';
-import { MinusPageComponent } from './components/pages/minus-page/minus-page.component';
-import { HistoryPageComponent } from './components/pages/history-page/history-page.component';
+import { BalancePageComponent } from './components/balance-page/balance-page.component';
+import { PlusPageComponent } from './components/plus-page/plus-page.component';
+import { MinusPageComponent } from './components/minus-page/minus-page.component';
+import { HistoryPageComponent } from './components/history-page/history-page.component';
 import { CpaComponent } from './cpa.component';
+import { BalanceContainerComponent } from './components/balance-page/balance-container/balance-container.component';
 
 const routes: Route[] = [
   { path: 'history', component: HistoryPageComponent, pathMatch: 'full' },
@@ -26,7 +27,8 @@ const routes: Route[] = [
     PlusPageComponent,
     MinusPageComponent,
     HistoryPageComponent,
-    CpaComponent
+    CpaComponent,
+    BalanceContainerComponent
   ],
   imports: [
     CommonModule,
