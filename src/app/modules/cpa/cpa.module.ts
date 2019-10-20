@@ -13,13 +13,11 @@ import { MinusPageComponent } from './components/minus-page/minus-page.component
 import { HistoryPageComponent } from './components/history-page/history-page.component';
 import { CpaComponent } from './cpa.component';
 import { BalanceContainerComponent } from './components/balance-page/balance-container/balance-container.component';
+import { PaymentFormComponent } from './components/payment-form/payment-form.component';
+import { PaymentLatestComponent } from './components/payment-latest/payment-latest.component';
+import { CpaRoutingService } from './services/cpa-routing.service';
 
-const routes: Route[] = [
-  { path: 'history', component: HistoryPageComponent, pathMatch: 'full' },
-  { path: 'plus', component: PlusPageComponent, pathMatch: 'full' },
-  { path: 'minus', component: MinusPageComponent, pathMatch: 'full' },
-  { path: 'balance', component: BalancePageComponent, pathMatch: 'full' }
-];
+const routes = CpaRoutingService.routes;
 
 @NgModule({
   declarations: [
@@ -28,7 +26,9 @@ const routes: Route[] = [
     MinusPageComponent,
     HistoryPageComponent,
     CpaComponent,
-    BalanceContainerComponent
+    BalanceContainerComponent,
+    PaymentFormComponent,
+    PaymentLatestComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +38,9 @@ const routes: Route[] = [
   ],
   exports: [
     CpaComponent
+  ],
+  providers: [
+    CpaRoutingService
   ]
 })
 export class CpaModule { }

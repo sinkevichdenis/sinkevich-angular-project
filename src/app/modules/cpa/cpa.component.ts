@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Nav } from '../../models/nav.interface';
 import { AuthService } from '../auth/services/auth.service';
 import { UserOnline } from '../../models/userOnline.interface';
+import { CpaRoutingService } from './services/cpa-routing.service';
 
 @Component({
   selector: 'app-cpa',
@@ -36,11 +37,11 @@ export class CpaComponent {
 
   private userOnline: UserOnline;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private cpaRouting: CpaRoutingService) {
     AuthService.userOnline$.subscribe(item => {
       this.userOnline = item;
       if (item.status) {
-        this.router.navigate(['/account/balance']);
+        this.cpaRouting.navigateVisitor();
       }
     });
   }
