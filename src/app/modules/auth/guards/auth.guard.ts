@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {CanLoad, CanActivate, CanActivateChild, Router} from '@angular/router';
+import {CanLoad, CanActivateChild, Router} from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
 
@@ -13,11 +13,11 @@ export class AuthGuard implements CanLoad, CanActivateChild {
     });
   }
 
-  canLoad() {
+  canLoad(): boolean {
     return true;
   }
 
-  canActivateChild() {
+  canActivateChild(): boolean {
     if (!this.isUserOnline) {
       this.router.navigate(['/account']);
     }

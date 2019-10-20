@@ -13,7 +13,7 @@ export class LoginComponent {
   private users: User[];
   private isFormValid = true;
 
-  constructor(private fb: FormBuilder, private auth: AuthService) {
+  constructor(private fb: FormBuilder, public auth: AuthService) {
    this.logForm = this.fb.group({
       name: ['admin', Validators.required],
       password: ['111111', Validators.required]
@@ -30,6 +30,7 @@ export class LoginComponent {
 
   validateUser( name = this.name.value, password = this.password.value ): void {
     const visitor = this.users.find(item => item.name === name);
+    console.log('visitor', visitor);
     const streamNext = {
       user: null,
       status: false
@@ -38,6 +39,7 @@ export class LoginComponent {
     if (visitor) {
       streamNext.user = (visitor.password === password) ? Object.assign({}, visitor) : null;
       streamNext.status = !!streamNext.user;
+      console.log('enter', JSON.stringify(streamNext));
       AuthService.userOnline$.next(streamNext);
     }
 
@@ -52,6 +54,10 @@ export class LoginComponent {
       this.users = items;
       this.validateUser();
     });
+  }
+
+  test() {
+    console.log('click login button');
   }
 
 }

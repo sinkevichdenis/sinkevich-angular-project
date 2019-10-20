@@ -19,6 +19,7 @@ export class AuthComponent {
 
   exitUser() {
     AuthService.userOnline$.next({user: null, status: false});
+    console.log(' exit {user: null, status: false}');
     this.router.navigate(['/account']);
   }
 

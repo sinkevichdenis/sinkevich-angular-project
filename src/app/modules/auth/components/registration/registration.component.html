@@ -67,7 +67,12 @@
     </ng-container>
   </label>
 
-  <button type="submit" [disabled]="regForm.invalid || name.invalid">
+  <button type="submit" [disabled]="
+  regForm.invalid
+  || name.invalid
+  || confirmPassword.invalid
+  || password.invalid
+  || email.invalid">
     Зарегистрироваться
   </button>
 </form>

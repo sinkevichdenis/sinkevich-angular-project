@@ -11,8 +11,8 @@ export class FirebaseService {
 
   constructor(private afs: AngularFirestore) {}
 
-  getItems<T>(dir: string): Observable<T[]> {
-    return this.afs.collection(dir).snapshotChanges().pipe(
+  getItems<T>(path: string): Observable<T[]> {
+    return this.afs.collection(path).snapshotChanges().pipe(
       map(changes => {
         return changes.map( x => {
           const data = x.payload.doc.data() as any;
@@ -23,14 +23,21 @@ export class FirebaseService {
     );
   }
 
-  addItem(dir: string, item: any): void {
-    this.afs.collection(dir).add(item);
+  addItem(path: string, item: any) {
+    this.afs.collection(path).add(item);
   }
 
-  getSelectedValues<T>(dir: string, key: string): Observable<any[]> {
-    return this.getItems<T>(dir).pipe(
+  getSelectedValues<T>(path: string, key: string): Observable<any[]> {
+    return this.getItems<T>(path).pipe(
       map(items => items.map(item => item[key]))
     );
   }
 
+  updateItem(path: string, item: any) {
+    this.afs.doc(`${path}/${item.id}`).update(item);
+  }
+
+  deleteItem(path: string, item: any) {
+    this.afs.doc(`${path}/${item.id}`).delete();
+  }
 }
