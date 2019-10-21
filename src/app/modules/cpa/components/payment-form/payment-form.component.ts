@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./payment-form.component.sass']
 })
 export class PaymentFormComponent {
+  @Input() public status;
+  @Input() public mainColor;
+
   private payForm: FormGroup;
   date: Date = new Date();
   public settings = {
@@ -27,6 +30,5 @@ export class PaymentFormComponent {
   }
 
   onSubmit(): void {
-
   }
 }

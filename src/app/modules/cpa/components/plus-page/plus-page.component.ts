@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./plus-page.component.sass']
 })
 export class PlusPageComponent implements OnInit {
+  private mainColor = 'green';
+  private status = true;
 
   constructor() { }
 

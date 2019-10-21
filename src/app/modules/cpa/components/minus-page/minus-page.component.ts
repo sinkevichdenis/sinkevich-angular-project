@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./minus-page.component.sass']
 })
 export class MinusPageComponent implements OnInit {
+  private mainColor = 'red';
+  private status = false;
 
   constructor() { }
 

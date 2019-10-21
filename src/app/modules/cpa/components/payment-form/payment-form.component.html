@@ -19,8 +19,12 @@
   </label>
 
 
-  <button class="button-circle" type="submit" [disabled]="payForm.invalid">
-    +
+  <button
+    class="button-circle"
+    type="submit"
+    [disabled]="payForm.invalid"
+    [ngStyle]="{backgroundColor: payForm.valid ? mainColor : 'transparent'}">
+  +
   </button>
 
 </form>
