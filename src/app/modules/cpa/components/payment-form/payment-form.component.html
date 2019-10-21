@@ -1,16 +1,12 @@
-
 <form [formGroup]="payForm" (ngSubmit)="onSubmit()" >
   <label>
     <p>Дата и время:</p>
     <angular2-date-picker formControlName="date" [settings]="settings"></angular2-date-picker>
-
   </label>
-
-
   <br>
   <label>
     <p>Категория:</p>
-    <input formControlName="direction" type="text">
+    <input formControlName="category" type="text">
   </label>
   <label class="currency">
     <p>Сумма:</p>
@@ -23,9 +19,8 @@
   </label>
 
 
-  <button type="submit" [disabled]="payForm.invalid">
-    Добавить
+  <button class="button-circle" type="submit" [disabled]="payForm.invalid">
+    +
   </button>
 
-  {{payForm.value | json}}
 </form>

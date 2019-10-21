@@ -14,11 +14,11 @@
     padding-left: .8em !important
 
   &:hover
-    border-color: $backDark
+    border-color: $backDark !important
     box-shadow: 0 0 .5em grey
 
   &:focus
-    border-color: $backDark
+    border-color: $backDark !important
     box-shadow: 0 0 .6em black
 
   & > span
@@ -41,3 +41,29 @@
     left: 50% !important
     height: 24em !important
     max-width: 17em !important
+
+form > .button-circle
+  padding: 0.1em 0.3em
+  margin: .4em
+  line-height: 1em
+  font-size: 7em
+  color: black
+  background-color: red
+  box-shadow: 0 0 0.1em black
+  border-radius: 50%
+  border: 1px solid black
+
+  opacity: .6
+  transition: .2s
+  cursor: pointer
+
+  &:hover
+    opacity: .8
+    box-shadow: 0 0 .3em black
+
+  &:active
+    box-shadow: 0 0 .2em white
+
+  &[disabled]
+    border: 1px solid transparent
+    background-color: transparent

@@ -20,7 +20,7 @@ export class PaymentFormComponent {
   constructor(private fb: FormBuilder) {
     this.payForm = fb.group({
       date: [new Date()],
-      direction: [''],
+      category: [''],
       value: ['', Validators.required],
       text: ['']
     });

@@ -12,9 +12,9 @@
   @media (max-width: 576px)
     margin: 1em
     font-size: .8em
-:host-context(.plus) .container-form
-  background-color: rgba(255, 0, 0, .3)
-  border: 1px solid rgba(255, 0, 0, .7)
+.plus .container-form
+  background-color: rgba(255, 0, 0, .2)
+  border: 1px solid rgba(255, 0, 0, .5)
 
 .sub-container
   min-width: 23.5em
@@ -65,7 +65,7 @@
         border-color: $backDark
         box-shadow: 0 0 .6em black
 
-    ::ng-deep & button
+    ::ng-deep & button.button-rect
       margin-top: 1em
       padding: .5em .2em
       width: 70%
