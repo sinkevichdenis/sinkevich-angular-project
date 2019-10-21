@@ -1,5 +1,5 @@
 import { CpaDefault } from './cpaDefault.interface';
 
-export interface CpaDirection extends CpaDefault {
+export interface CpaCategory extends CpaDefault {
   title: string;
 }
