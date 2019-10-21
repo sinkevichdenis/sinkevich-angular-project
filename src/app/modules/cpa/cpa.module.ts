@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Route, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // library modules
 import { MatToolbarModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
 // feature components
 import { BalancePageComponent } from './components/balance-page/balance-page.component';
@@ -14,8 +16,9 @@ import { HistoryPageComponent } from './components/history-page/history-page.com
 import { CpaComponent } from './cpa.component';
 import { BalanceContainerComponent } from './components/balance-page/balance-container/balance-container.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
-import { PaymentLatestComponent } from './components/payment-latest/payment-latest.component';
 import { CpaRoutingService } from './services/cpa-routing.service';
+import { CalculatorComponent } from './components/calculator/calculator.component';
+import { DirectionFormComponent } from './components/direction-form/direction-form.component';
 
 const routes = CpaRoutingService.routes;
 
@@ -28,13 +31,16 @@ const routes = CpaRoutingService.routes;
     CpaComponent,
     BalanceContainerComponent,
     PaymentFormComponent,
-    PaymentLatestComponent
+    CalculatorComponent,
+    DirectionFormComponent
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
     MatTabsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    ReactiveFormsModule,
+    AngularDateTimePickerModule
   ],
   exports: [
     CpaComponent
