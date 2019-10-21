@@ -1,0 +1,20 @@
+<form [formGroup]="catForm" (ngSubmit)="onSubmit()" >
+  <label>
+    <p>Категория (управление):</p>
+    <input formControlName="title" type="text">
+  </label>
+
+  <button>
+    Добавить
+  </button>
+
+  <button>
+    Изменить
+  </button>
+
+  <button>
+    Удалить
+  </button>
+
+</form>
+
