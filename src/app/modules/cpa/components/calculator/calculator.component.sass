@@ -1,0 +1,58 @@
+@import "./src/app/general/styles/variables"
+
+.base
+  max-width: 24em
+  border: 1px solid $backDark
+  border-radius: 0 0 .5em .5em
+  font-size: 1em
+
+.maindisplay
+  min-height: 1.7em
+  padding: 3%
+  background: lightgrey
+  text-align: right
+  font-size: 3em
+  font-family: Courier, monospace
+  overflow: auto
+  user-select: none
+
+.subdisplay
+  border-bottom: 1px solid black
+  height: 25%
+  width: 100%
+  font-size: 0.4em
+  overflow: auto
+  user-select: none
+
+.keypad
+  text-align: center
+
+.keys
+  width: 20%
+  height: 20%
+  margin: 0
+  padding: 2%
+  background: transparent
+  opacity: .8
+  color: black
+  text-align: center
+  font-size: 2rem
+  font-family: "Arial Black"
+  cursor: pointer
+  transition: .2s
+  user-select: none
+
+  &:hover
+    background-color: $backLight
+
+  &:active
+    background-color: $backDark
+
+.one-line
+  display: inline-block
+
+.ackey
+  width: 68%
+
+.zerokey
+  width: 44%
