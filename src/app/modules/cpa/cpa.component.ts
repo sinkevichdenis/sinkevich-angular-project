@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { Router } from '@angular/router';
 import { Nav } from '../../models/nav.interface';
 import { AuthService } from '../auth/services/auth.service';
@@ -11,7 +11,7 @@ import { CpaRoutingService } from './services/cpa-routing.service';
   styleUrls: ['./cpa.component.sass'],
   encapsulation: ViewEncapsulation.None
 })
-export class CpaComponent {
+export class CpaComponent implements  OnInit{
   links: Nav[] = [
     {
       path: 'balance',
@@ -37,7 +37,9 @@ export class CpaComponent {
 
   private userOnline: UserOnline;
 
-  constructor(private router: Router, private cpaRouting: CpaRoutingService) {
+  constructor(private router: Router, private cpaRouting: CpaRoutingService) {}
+
+  ngOnInit() {
     AuthService.userOnline$.subscribe(item => {
       this.userOnline = item;
       if (item.status) {
