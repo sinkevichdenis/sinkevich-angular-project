@@ -49,7 +49,8 @@
         text-align: left
         text-indent: 1.5em
 
-    ::ng-deep & input
+    ::ng-deep & input,
+    ::ng-deep & select
       width: 90%
       height: 2em
       padding-left: 1em
@@ -64,6 +65,11 @@
       &:focus
         border-color: $backDark
         box-shadow: 0 0 .6em black
+
+    ::ng-deep & select
+      width: 96%
+      height: 2.3em
+      border-width: 2px
 
     ::ng-deep & button.button-rect
       margin-top: 1em
@@ -87,3 +93,6 @@
       &:active
         transition: .05s
         box-shadow: 0 0 1em black
+
+    ::ng-deep & .error
+      font-size: 1.2em

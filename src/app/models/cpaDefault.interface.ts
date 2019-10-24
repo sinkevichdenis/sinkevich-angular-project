@@ -1,5 +1,5 @@
 export interface CpaDefault {
-  id: string | number;
+  id?: string | number;
   userId: number | string;
   status: boolean;
 }

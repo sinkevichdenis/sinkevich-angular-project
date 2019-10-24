@@ -19,6 +19,7 @@ import { PaymentFormComponent } from './components/payment-form/payment-form.com
 import { CpaRoutingService } from './services/cpa-routing.service';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
+import { CurrencyDirective } from './directives/currency.directive';
 
 const routes = CpaRoutingService.routes;
 
@@ -32,7 +33,8 @@ const routes = CpaRoutingService.routes;
     BalanceContainerComponent,
     PaymentFormComponent,
     CalculatorComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    CurrencyDirective
   ],
   imports: [
     CommonModule,

@@ -11,8 +11,13 @@ import { AuthGuard } from '../auth/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent, pathMatch: 'full' },
-  { path: 'account', component: AccountPageComponent,
-    canLoad: [AuthGuard], canActivateChild: [AuthGuard], loadChildren: '../cpa/cpa.module#CpaModule'},
+  {
+    path: 'account',
+    component: AccountPageComponent,
+    canLoad: [AuthGuard],
+    canActivateChild: [AuthGuard],
+    loadChildren: '../cpa/cpa.module#CpaModule'
+  },
   { path: 'contacts', component: ContactsPageComponent, pathMatch: 'full'},
   { path: 'feedbacks', component: FeedbacksPageComponent, pathMatch: 'full'},
   { path: '**', component: ErrorPageComponent }

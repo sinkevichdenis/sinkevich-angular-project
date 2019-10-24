@@ -2,16 +2,32 @@
   <label>
     <p>Дата и время:</p>
     <angular2-date-picker formControlName="date" [settings]="settings"></angular2-date-picker>
+    <p class="error"
+       *ngIf="date.touched && date.errors?.required">
+      Заполните поле
+    </p>
   </label>
   <br>
   <label>
     <p>Категория:</p>
-    <input formControlName="category" type="text">
+    <select formControlName="category">
+      <ng-template ngFor let-x [ngForOf]="categories | async">
+        <option value="x.id">{{x.title}}</option>
+      </ng-template>
+    </select>
+    <p class="error"
+       *ngIf="category.touched && category.errors?.required">
+      Заполните поле
+    </p>
   </label>
   <label class="currency">
     <p>Сумма:</p>
-    <input formControlName="value" type="number">
+    <input formControlName="value" type="number"  min="0" appCurrency>
     <span>BYN</span>
+    <p class="error"
+       *ngIf="value.touched && value.errors?.required">
+      Заполните поле
+    </p>
   </label>
   <label>
     <p>Комментарий:</p>

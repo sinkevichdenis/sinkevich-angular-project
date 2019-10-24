@@ -1,20 +1,61 @@
-<form [formGroup]="catForm" (ngSubmit)="onSubmit()" >
+<form [formGroup]="catForm">
   <label>
     <p>Категория (управление):</p>
-    <input formControlName="title" type="text">
+    <input
+      id="categoryTitleInput"
+      formControlName="title"
+      type="text">
+    <p class="error" *ngIf="title.errors?.notUnique">
+      Название уже существует
+    </p>
   </label>
 
-  <button class="button-rect">
-    Добавить
-  </button>
+  <label *ngIf="editableStatus">
+    <input
+      formControlName="newTitle"
+      type="text"
+      placeholder="Новое название">
+    <p class="error" *ngIf="newTitle.errors?.notUnique">
+      Название уже существует
+    </p>
+  </label>
 
-  <button class="button-rect">
-    Изменить
-  </button>
+  <div *ngIf="!editableStatus">
+    <button
+      class="button-rect"
+      (click)="add(title.value)"
+      [disabled]="title.errors?.notUnique" >
+      Добавить
+    </button>
 
-  <button class="button-rect">
-    Удалить
-  </button>
+    <button
+      class="button-rect"
+      (click)="switchMenu()"
+      [disabled]="title.errors?.required || !title.errors?.notUnique">
+      Изменить
+    </button>
 
+    <button
+      class="button-rect"
+      (click)="delete(title.value)"
+      [disabled]="title.errors?.required || !title.errors?.notUnique">
+      Удалить
+    </button>
+
+  </div>
+  <div *ngIf="editableStatus">
+    <button
+      class="button-rect"
+      (click)="edit(title.value, newTitle.value)"
+      [disabled]="newTitle.errors?.required || newTitle.errors?.notUnique">
+      Сохранить
+    </button>
+
+    <button
+      class="button-rect"
+      (click)="switchMenu()">
+      Отмена
+    </button>
+  </div>
 </form>
 

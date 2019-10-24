@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore} from 'angularfire2/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import {pluck, tap} from 'rxjs/internal/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -40,4 +39,5 @@ export class FirebaseService {
   deleteItem(path: string, item: any) {
     this.afs.doc(`${path}/${item.id}`).delete();
   }
+
 }
