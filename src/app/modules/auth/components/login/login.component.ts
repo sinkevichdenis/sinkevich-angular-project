@@ -1,24 +1,22 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import {AuthService} from '../../services/auth.service';
 import {User} from '../../../../models/user.interface';
-import {fromEvent} from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  private logForm: FormGroup;
   private users: User[];
   private isFormValid = true;
 
-  constructor(private fb: FormBuilder, public auth: AuthService) {
-   this.logForm = this.fb.group({
-      name: ['admin', Validators.required],
-      password: ['111111', Validators.required]
-    });
-  }
+  private logForm = this.fb.group({
+    name: ['admin', Validators.required],
+    password: ['111111', Validators.required]
+  });
+
+  constructor(private fb: FormBuilder, public auth: AuthService) {}
 
   get name(): AbstractControl {
     return this.logForm.get('name');
@@ -55,9 +53,4 @@ export class LoginComponent {
       this.validateUser();
     });
   }
-
-  test() {
-    console.log('click login button');
-  }
-
 }

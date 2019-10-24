@@ -3,6 +3,7 @@ import { User } from '../../../models/user.interface';
 import { FirebaseService } from '../../../data/firebase.service';
 import { BehaviorSubject, Observable} from 'rxjs';
 import { UserOnline } from '../../../models/userOnline.interface';
+import { map } from 'rxjs/internal/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,11 @@ export class AuthService {
 
   getSelectedValues(key: string): Observable<any[]> {
     return this.fb.getSelectedValues<User>(this.dbKey, key);
+  }
+
+  getUserWithId(keyValue: string): Observable<User> {
+    return this.getUsers().pipe(
+      map(items => items.find(item => item.name === keyValue)),
+    );
   }
 }
