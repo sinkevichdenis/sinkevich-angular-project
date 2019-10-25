@@ -1,9 +1,8 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit} from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { CategoryService } from '../../services/category.service';
-import { AuthService } from '../../../auth/services/auth.service';
 import { User } from '../../../../models/user.interface';
-import {from, Observable, of} from 'rxjs';
+import { Observable, of} from 'rxjs';
 import {CpaCategory} from '../../../../models/cpaCategory.interface';
 
 @Component({
@@ -26,11 +25,6 @@ export class CategoryFormComponent implements OnInit, AfterViewInit {
   constructor(private fb: FormBuilder, private categoryService: CategoryService) {}
 
   ngOnInit() {
-    AuthService.userOnline$.subscribe(item => {
-      this.user = Object.assign({}, item.user);
-    });
-    this.categoryService.id = this.user.id;
-    this.categoryService.status = this.status;
     this.categoryService.get().subscribe(items => this.categories = [...items]);
   }
 

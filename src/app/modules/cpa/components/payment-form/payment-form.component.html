@@ -11,9 +11,7 @@
   <label>
     <p>Категория:</p>
     <select formControlName="category">
-      <ng-template ngFor let-x [ngForOf]="categories | async">
-        <option value="x.id">{{x.title}}</option>
-      </ng-template>
+      <option *ngFor="let x of categories | async" [ngValue]="x.id">{{x.title}}</option>
     </select>
     <p class="error"
        *ngIf="category.touched && category.errors?.required">
@@ -33,7 +31,6 @@
     <p>Комментарий:</p>
     <input formControlName="text" type="text" placeholder="Пару слов на память...">
   </label>
-
 
   <button
     class="button-circle"

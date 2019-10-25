@@ -1,9 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { CategoryService } from '../../services/category.service';
-import {ObservableInput} from 'rxjs';
-import {CpaCategory} from '../../../../models/cpaCategory.interface';
-import {tap} from 'rxjs/internal/operators';
+import { Observable } from 'rxjs';
+import { CpaCategory } from '../../../../models/cpaCategory.interface';
 
 @Component({
   selector: 'app-payment-form',
@@ -29,7 +28,8 @@ export class PaymentFormComponent implements OnInit {
     closeOnSelect: true
   };
 
-  private categories: ObservableInput<CpaCategory[]>;
+  private categories: Observable<CpaCategory[]>;
+  readonly defaultSelect: string;
 
   constructor(private fb: FormBuilder, private categoryService: CategoryService) {}
 
