@@ -3,6 +3,10 @@ import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { CategoryService } from '../../services/category.service';
 import { Observable } from 'rxjs';
 import { CpaCategory } from '../../../../models/cpaCategory.interface';
+import { CpaPayment } from '../../../../models/cpaPayment.interface';
+import { PaymentService } from '../../services/payment.service';
+import { UserOnline } from '../../../../models/userOnline.interface';
+import {CpaStateService} from '../../services/cpa-state.service';
 
 @Component({
   selector: 'app-payment-form',
@@ -10,14 +14,17 @@ import { CpaCategory } from '../../../../models/cpaCategory.interface';
   styleUrls: ['./payment-form.component.sass']
 })
 export class PaymentFormComponent implements OnInit {
-  @Input() public status;
   @Input() public mainColor;
+  readonly maxLength = 25;
+  private categories: Observable<CpaCategory[]>;
+  private userId: string | number;
+  private status: boolean;
 
   private payForm = this.fb.group({
     date: [new Date(), Validators.required],
     category: ['', Validators.required],
     value: ['', Validators.required],
-    text: ['']
+    text: ['', Validators.maxLength(this.maxLength)]
   });
 
   public settings = {
@@ -28,13 +35,18 @@ export class PaymentFormComponent implements OnInit {
     closeOnSelect: true
   };
 
-  private categories: Observable<CpaCategory[]>;
-  readonly defaultSelect: string;
 
-  constructor(private fb: FormBuilder, private categoryService: CategoryService) {}
+  constructor(
+    private fb: FormBuilder,
+    private categoryService: CategoryService,
+    private paymentService: PaymentService,
+    private cpaState: CpaStateService
+  ) {}
 
   ngOnInit() {
     this.categories = this.categoryService.get();
+    this.userId = this.cpaState.userId;
+    this.cpaState.status$.subscribe(status => this.status = status);
   }
 
   get date(): AbstractControl {
@@ -49,6 +61,24 @@ export class PaymentFormComponent implements OnInit {
     return this.payForm.get('value');
   }
 
-  onSubmit(): void {
+  get text(): AbstractControl {
+    return this.payForm.get('text');
+  }
+
+  onSubmit() {
+    this.paymentService.add(this.createPayment());
+    this.payForm.reset();
+  }
+
+ createPayment(): CpaPayment {
+    return {
+      date: new Date(this.date.value).getTime(),
+      catId: this.category.value,
+      userId: this.userId,
+      currency: 'BYN',
+      value: this.value.value,
+      status: this.status,
+      text: this.text.value
+    };
   }
 }

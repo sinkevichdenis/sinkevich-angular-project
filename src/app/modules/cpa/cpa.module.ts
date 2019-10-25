@@ -16,10 +16,13 @@ import { HistoryPageComponent } from './components/history-page/history-page.com
 import { CpaComponent } from './cpa.component';
 import { BalanceContainerComponent } from './components/balance-page/balance-container/balance-container.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
-import { CpaRoutingService } from './services/cpa-routing.service';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
 import { CurrencyDirective } from './directives/currency.directive';
+import { CpaRoutingService } from './services/cpa-routing.service';
+import { CpaStateService } from './services/cpa-state.service';
+import {CategoryService} from './services/category.service';
+import {PaymentService} from './services/payment.service';
 
 const routes = CpaRoutingService.routes;
 
@@ -48,7 +51,10 @@ const routes = CpaRoutingService.routes;
     CpaComponent
   ],
   providers: [
-    CpaRoutingService
+    CpaRoutingService,
+    CpaStateService,
+    CategoryService,
+    PaymentService
   ]
 })
 export class CpaModule { }

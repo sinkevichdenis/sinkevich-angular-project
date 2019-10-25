@@ -3,20 +3,22 @@ import { FirebaseService } from '../../../data/firebase.service';
 import { Observable } from 'rxjs';
 import { CpaCategory } from '../../../models/cpaCategory.interface';
 import { map } from 'rxjs/internal/operators';
+import { CpaStateService } from './cpa-state.service';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CategoryService {
   private dbKey = 'categories';
-  public id: string | number;
-  public status: boolean;
+  private userId: string | number | null;
+  private status: boolean;
 
-  constructor(private fb: FirebaseService) {}
+  constructor(private fb: FirebaseService, private cpaState: CpaStateService) {
+    this.userId = this.cpaState.userId;
+    this.cpaState.status$.subscribe(status => this.status = status);
+  }
 
   get(): Observable<CpaCategory[]> {
     return this.fb.getItems<CpaCategory>(this.dbKey).pipe(
-      map(items => items.filter(item => item.userId === this.id && item.status === this.status)),
+      map(items => items.filter(item => item.userId === this.userId && item.status === this.status)),
       map(items => items.sort((a, b) => a.title.localeCompare(b.title)))
     );
   }

@@ -1,9 +1,10 @@
-import { AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { CategoryService } from '../../services/category.service';
 import { User } from '../../../../models/user.interface';
 import { Observable, of} from 'rxjs';
-import {CpaCategory} from '../../../../models/cpaCategory.interface';
+import { CpaCategory } from '../../../../models/cpaCategory.interface';
+import { CpaStateService } from '../../services/cpa-state.service';
 
 @Component({
   selector: 'app-category-form',
@@ -11,7 +12,7 @@ import {CpaCategory} from '../../../../models/cpaCategory.interface';
   styleUrls: ['./category-form.component.sass']
 })
 export class CategoryFormComponent implements OnInit, AfterViewInit {
-  @Input() status;
+  private status: boolean;
   private user: User;
   private categories: CpaCategory[];
   private editableStatus = false;
@@ -22,10 +23,15 @@ export class CategoryFormComponent implements OnInit, AfterViewInit {
     newTitle: ['', Validators.required, this.checkTitle.bind(this)]
   });
 
-  constructor(private fb: FormBuilder, private categoryService: CategoryService) {}
+  constructor(
+    private fb: FormBuilder,
+    private categoryService: CategoryService,
+    private cpaState: CpaStateService
+  ) {}
 
   ngOnInit() {
     this.categoryService.get().subscribe(items => this.categories = [...items]);
+    this.cpaState.status$.subscribe(status => this.status = status);
   }
 
   ngAfterViewInit() {

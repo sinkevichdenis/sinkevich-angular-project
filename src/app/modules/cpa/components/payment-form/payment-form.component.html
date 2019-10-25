@@ -29,8 +29,13 @@
   </label>
   <label>
     <p>Комментарий:</p>
-    <input formControlName="text" type="text" placeholder="Пару слов на память...">
+    <input formControlName="text" type="text"  [maxlength]="maxLength+1" placeholder="Пару слов на память...">
+    <p class="error"
+       *ngIf="text.dirty && text.errors?.maxlength">
+      Покороче давай...
+    </p>
   </label>
+  {{payForm.value | json}}
 
   <button
     class="button-circle"
