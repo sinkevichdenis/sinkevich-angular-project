@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { CategoryService } from '../../services/category.service';
 import { Observable } from 'rxjs';
+
 import { CpaCategory } from '../../../../models/cpaCategory.interface';
 import { CpaPayment } from '../../../../models/cpaPayment.interface';
 import { PaymentService } from '../../services/payment.service';
-import { UserOnline } from '../../../../models/userOnline.interface';
-import {CpaStateService} from '../../services/cpa-state.service';
+import { CpaStateService } from '../../services/cpa-state.service';
 
 @Component({
   selector: 'app-payment-form',

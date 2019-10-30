@@ -1,6 +1,6 @@
 @import "./src/app/general/styles/variables"
 ::ng-deep div.wc-date-container
-  width: 98% !important
+  width: 100% !important
   height: 2.9em !important
   padding: .8em !important
   padding-left: 1.4em !important
@@ -25,8 +25,6 @@
     font-size: 1.2em !important
     color: black !important
 
-::ng-deep div.winkel-calendar
-  padding-left: 0.5em
 
 ::ng-deep .wc-date-popover
   width: 20em !important
@@ -42,27 +40,31 @@
     height: 24em !important
     max-width: 17em !important
 
-form > .button-circle
-  padding: 0.1em 0.3em
-  margin: .4em
-  line-height: 1em
-  font-size: 7em
-  color: black
-  box-shadow: 0 0 0.1em black
-  border-radius: 50%
-  border: 1px solid black
+form
+  text-align: left
 
-  opacity: .6
-  transition: .2s
-  cursor: pointer
+  & > .button-circle
+    padding: 0.1em 0.3em
+    margin: .4em
+    transform: translateX(60%)
+    line-height: 1em
+    font-size: 7em
+    color: black
+    box-shadow: 0 0 0.1em black
+    border-radius: 50%
+    border: 1px solid black
 
-  &:hover
-    opacity: .8
-    box-shadow: 0 0 .3em black
+    opacity: .6
+    transition: .2s
+    cursor: pointer
 
-  &:active
-    box-shadow: 0 0 .2em white
+    &:hover
+      opacity: .8
+      box-shadow: 0 0 .3em black
 
-  &[disabled]
-    border: 1px solid transparent
-    background-color: transparent
+    &:active
+      box-shadow: 0 0 .2em white
+
+    &[disabled]
+      border: 1px solid transparent
+      background-color: transparent

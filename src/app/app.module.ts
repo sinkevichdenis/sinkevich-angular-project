@@ -15,10 +15,12 @@ import { HomePageModule } from './modules/home-page/home-page.module';
 import { ErrorPageModule } from './modules/error-page/error-page.module';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { FeedbackComponent } from './modules/feedbacks-page/components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

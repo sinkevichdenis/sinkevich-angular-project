@@ -14,15 +14,17 @@ import { PlusPageComponent } from './components/plus-page/plus-page.component';
 import { MinusPageComponent } from './components/minus-page/minus-page.component';
 import { HistoryPageComponent } from './components/history-page/history-page.component';
 import { CpaComponent } from './cpa.component';
-import { BalanceContainerComponent } from './components/balance-page/balance-container/balance-container.component';
+import { BalanceContainerComponent } from './components/balance-container/balance-container.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
 import { CurrencyDirective } from './directives/currency.directive';
 import { CpaRoutingService } from './services/cpa-routing.service';
 import { CpaStateService } from './services/cpa-state.service';
-import {CategoryService} from './services/category.service';
-import {PaymentService} from './services/payment.service';
+import { CategoryService } from './services/category.service';
+import { PaymentService } from './services/payment.service';
+import { DateRangeFormComponent } from './components/date-range-form/date-range-form.component';
+import { PaymentContainerComponent } from './components/payment-container/payment-container.component';
 
 const routes = CpaRoutingService.routes;
 
@@ -37,7 +39,9 @@ const routes = CpaRoutingService.routes;
     PaymentFormComponent,
     CalculatorComponent,
     CategoryFormComponent,
-    CurrencyDirective
+    CurrencyDirective,
+    DateRangeFormComponent,
+    PaymentContainerComponent
   ],
   imports: [
     CommonModule,

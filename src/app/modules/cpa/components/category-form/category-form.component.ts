@@ -5,6 +5,7 @@ import { User } from '../../../../models/user.interface';
 import { Observable, of} from 'rxjs';
 import { CpaCategory } from '../../../../models/cpaCategory.interface';
 import { CpaStateService } from '../../services/cpa-state.service';
+import {AuthService} from '../../../auth/services/auth.service';
 
 @Component({
   selector: 'app-category-form',
@@ -26,12 +27,14 @@ export class CategoryFormComponent implements OnInit, AfterViewInit {
   constructor(
     private fb: FormBuilder,
     private categoryService: CategoryService,
-    private cpaState: CpaStateService
+    private cpaState: CpaStateService,
+    private auth: AuthService
   ) {}
 
   ngOnInit() {
     this.categoryService.get().subscribe(items => this.categories = [...items]);
     this.cpaState.status$.subscribe(status => this.status = status);
+    AuthService.userOnline$.subscribe(userOnline => this.user = userOnline.user);
   }
 
   ngAfterViewInit() {

@@ -1,39 +1,42 @@
 <form [formGroup]="payForm" (ngSubmit)="onSubmit()" >
   <label>
-    <p>Дата и время:</p>
+    <span>Дата и время:</span>
     <angular2-date-picker formControlName="date" [settings]="settings"></angular2-date-picker>
-    <p class="error"
+    <span class="error"
        *ngIf="date.touched && date.errors?.required">
       Заполните поле
-    </p>
+    </span>
   </label>
   <br>
   <label>
-    <p>Категория:</p>
+    <span>Категория:</span>
     <select formControlName="category">
       <option *ngFor="let x of categories | async" [ngValue]="x.id">{{x.title}}</option>
     </select>
-    <p class="error"
+    <span class="error"
        *ngIf="category.touched && category.errors?.required">
       Заполните поле
-    </p>
+    </span>
   </label>
+  <br>
   <label class="currency">
-    <p>Сумма:</p>
+    <span>Сумма:</span>
+    <br>
     <input formControlName="value" type="number"  min="0" appCurrency>
-    <span>BYN</span>
-    <p class="error"
+    <span class="currency__current">BYN</span>
+    <span class="error"
        *ngIf="value.touched && value.errors?.required">
       Заполните поле
-    </p>
+    </span>
   </label>
+  <br>
   <label>
-    <p>Комментарий:</p>
+    <span>Комментарий:</span>
     <input formControlName="text" type="text"  [maxlength]="maxLength+1" placeholder="Пару слов на память...">
-    <p class="error"
+    <span class="error"
        *ngIf="text.dirty && text.errors?.maxlength">
       Покороче давай...
-    </p>
+    </span>
   </label>
 
   <button

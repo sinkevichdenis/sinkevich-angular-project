@@ -3,8 +3,7 @@ import { CpaStateService } from '../../services/cpa-state.service';
 
 @Component({
   selector: 'app-minus-page',
-  templateUrl: './minus-page.component.html',
-  styleUrls: ['./minus-page.component.sass']
+  templateUrl: './minus-page.component.html'
 })
 export class MinusPageComponent implements OnInit{
   private mainColor = 'red';

@@ -3,8 +3,7 @@ import { CpaStateService } from '../../services/cpa-state.service';
 
 @Component({
   selector: 'app-plus-page',
-  templateUrl: './plus-page.component.html',
-  styleUrls: ['./plus-page.component.sass']
+  templateUrl: './plus-page.component.html'
 })
 export class PlusPageComponent implements OnInit{
   private mainColor = 'green';
