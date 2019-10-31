@@ -151,9 +151,6 @@ section
         &.ng-touched .ng-invalid
           border-color: red
 
-      ::ng-deep & p
-        margin: .5em
-
       ::ng-deep & button
         margin-top: 1em
         padding: .5em .2em
@@ -189,13 +186,18 @@ section
   max-width: 22em
   text-align: center
 
-::ng-deep label p, ::ng-deep p.error
+  & label
+    display: flex
+    flex-direction: column
+    align-items: center
+
+::ng-deep label span, ::ng-deep span.error
+  align-self: start
+  margin: .5em 0
+  text-indent: 2em
   font-size: 1.2em
   opacity: .8
 
-::ng-deep label p
-  text-align: left
-  text-indent: 1.5em
-
-::ng-deep p.error
+::ng-deep span.error
   color: red
+  margin: .3em 0

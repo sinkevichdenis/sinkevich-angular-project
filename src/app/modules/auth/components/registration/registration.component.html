@@ -1,69 +1,69 @@
 <form [formGroup]="regForm" (ngSubmit)="onSubmit()">
     <label>
-    <p class="name">Имя:</p>
+    <span class="name">Имя:</span>
     <input formControlName="name" type="text">
     <ng-container *ngIf="name.touched">
-      <p class="error"
+      <span class="error"
          *ngIf="name.errors?.required">
         Введите имя
-      </p>
-      <p class="error"
+      </span>
+      <span class="error"
          *ngIf="name.errors?.notUnique">
         Это имя уже занято
-      </p>
+      </span>
     </ng-container>
   </label>
 
   <label>
-    <p>Пароль: </p>
+    <span>Пароль: </span>
     <input
       [ngClass]="{'ng-valid': confirmPassword.value === password.value,
         'ng-invalid': confirmPassword.value !== password.value}"
       formControlName="password"
       type="password">
     <ng-container *ngIf="password.touched">
-      <p class="error"
+      <span class="error"
          *ngIf="password.errors?.required">
         Введите пароль
-      </p>
-      <p class="error"
+      </span>
+      <span class="error"
          *ngIf="password.errors?.minlength">
         Слишком короткий пароль
-      </p>
+      </span>
     </ng-container>
   </label>
 
   <label>
-    <p>Пароль (повтор):</p>
+    <span>Пароль (повтор):</span>
     <input
       [ngClass]="{'ng-valid': confirmPassword.value === password.value,
         'ng-invalid': confirmPassword.value !== password.value}"
       formControlName="confirmPassword"
       type="password">
     <ng-container *ngIf="confirmPassword.touched">
-      <p class="error"
+      <span class="error"
          *ngIf="confirmPassword.errors?.required">
         Введите пароль ещё раз
-      </p>
-      <p class="error"
+      </span>
+      <span class="error"
          *ngIf="confirmPassword.value !== password.value">
         Пароли не совпадают
-      </p>
+      </span>
     </ng-container>
   </label>
 
   <label>
-    <p>Email:</p>
+    <span>Email:</span>
     <input formControlName="email" type="email">
     <ng-container *ngIf="email.touched">
-    <p class="error"
+    <span class="error"
        *ngIf="email.errors?.required">
       Введите email
-    </p>
-    <p class="error"
+    </span>
+    <span class="error"
        *ngIf="email.errors?.pattern">
       Неверный email
-    </p>
+    </span>
     </ng-container>
   </label>
 

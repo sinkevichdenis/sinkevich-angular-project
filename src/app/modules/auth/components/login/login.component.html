@@ -1,18 +1,18 @@
 <form [formGroup]="logForm" (ngSubmit)="onSubmit()" >
   <label>
-    <p class="name">Имя: </p>
+    <span class="name">Имя: </span>
     <input formControlName="name" type="text">
-    <p class="error" *ngIf="name.errors?.required && name.touched">
+    <span class="error" *ngIf="name.errors?.required && name.touched">
       Введите имя
-    </p>
+    </span>
   </label>
 
   <label>
-    <p>Пароль: </p>
+    <span>Пароль: </span>
     <input formControlName="password" type="password">
-    <p class="error" *ngIf="password.errors?.required && password.touched">
+    <span class="error" *ngIf="password.errors?.required && password.touched">
       Введите пароль
-    </p>
+    </span>
   </label>
 
 
@@ -20,8 +20,8 @@
     Войти
   </button>
 
-  <p class="error" *ngIf="!isFormValid">
+  <span class="error" *ngIf="!isFormValid">
     Введены неверные данные.
-  </p>
+  </span>
 
 </form>
