@@ -1,0 +1,11 @@
+<div [ngClass]="{'container': true, 'plus': status, 'minus': !status}">
+  <div class="sub-container container-form shadow">
+    <app-payment-form [mainColor]="mainColor">
+    </app-payment-form>
+  </div>
+
+  <div class="sub-container container-tools shadow">
+    <app-category-form></app-category-form>
+    <app-calculator></app-calculator>
+  </div>
+</div>
