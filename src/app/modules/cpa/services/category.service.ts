@@ -1,24 +1,27 @@
 import { Injectable } from '@angular/core';
-import { FirebaseService } from '../../../data/firebase.service';
 import { Observable } from 'rxjs';
-import { CpaCategory } from '../../../models/cpaCategory.interface';
 import { map } from 'rxjs/internal/operators';
-import { CpaStateService } from './cpa-state.service';
+import { FirebaseService } from '../../../core/services/firebase.service';
+import { StateService } from '../../../core/services/state.service';
+import { CpaCategory } from '../../../models/cpaCategory.interface';
+import { UserOnline } from '../../../models/userOnline.type';
 
 @Injectable()
 export class CategoryService {
   private dbKey = 'categories';
-  private userId: string | number | null;
-  private status: boolean;
+  private user: UserOnline;
+  private payDir: PayDir;
 
-  constructor(private fb: FirebaseService, private cpaState: CpaStateService) {
-    this.userId = this.cpaState.userId;
-    this.cpaState.status$.subscribe(status => this.status = status);
+  constructor(private fb: FirebaseService, private state: StateService) {
+    this.state.userOnline$.subscribe(item => this.user = item);
+    this.state.payDir$.subscribe(item => this.payDir = item);
   }
 
   get(): Observable<CpaCategory[]> {
     return this.fb.getItems<CpaCategory>(this.dbKey).pipe(
-      map(items => items.filter(item => item.userId === this.userId && item.status === this.status)),
+      map(items => items.filter(item =>
+        item.userId === ((!!this.user) ? this.user.id : null)
+        && item.status === this.payDir)),
       map(items => items.sort((a, b) => a.title.localeCompare(b.title)))
     );
   }

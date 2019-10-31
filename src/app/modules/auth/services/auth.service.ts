@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-import { User } from '../../../models/user.interface';
-import { FirebaseService } from '../../../data/firebase.service';
-import { BehaviorSubject, Observable} from 'rxjs';
-import { UserOnline } from '../../../models/userOnline.interface';
+import { Observable} from 'rxjs';
 import { map } from 'rxjs/internal/operators';
+import { FirebaseService } from '../../../core/services/firebase.service';
+import { User } from '../../../models/user.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  static userOnline$ = new BehaviorSubject<UserOnline>({user: null, status: false});
   private dbKey = 'users';
 
   constructor(private fb: FirebaseService) {}

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CpaStateService } from './cpa-state.service';
+import { StateService } from './state.service';
 
-describe('CpaStateService', () => {
+describe('StateService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: CpaStateService = TestBed.get(CpaStateService);
+    const service: StateService = TestBed.get(StateService);
     expect(service).toBeTruthy();
   });
 });

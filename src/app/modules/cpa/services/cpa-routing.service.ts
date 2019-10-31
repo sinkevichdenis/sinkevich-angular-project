@@ -17,6 +17,6 @@ export class CpaRoutingService {
   constructor(private router: Router) { }
 
   navigateVisitor(): void {
-    this.router.navigate(['/account/plus']);
+    this.router.navigate(['/account/history']);
   }
 }

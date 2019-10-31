@@ -5,3 +5,4 @@ template_examples/
 node_modules/
 e2e/
 src/environments/
+dist/

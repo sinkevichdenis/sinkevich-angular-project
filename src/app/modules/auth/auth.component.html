@@ -1,9 +1,9 @@
 <section class="account">
-  <div *ngIf="userOnline.status" class="account-container__logined">
-    <span> Добро пожаловать, <strong>{{userOnline.user.name}}</strong> </span>
+  <div *ngIf="!!user" class="account-container__logined">
+    <span> Добро пожаловать, <strong>{{user.name}}</strong> </span>
     <button name="exit" (click)="exitUser()">Выйти</button>
   </div>
-  <div *ngIf="!userOnline.status" class="account-container__unlogined">
+  <div *ngIf="!user" class="account-container__unlogined">
     <div class="account-content">
       <div class="account-content__top">
         <img src="/assets/diagram.png" alt="diagram">

@@ -1,24 +1,25 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { FirebaseService } from '../../../data/firebase.service';
-import { CpaPayment } from '../../../models/cpaPayment.interface';
 import { map } from 'rxjs/internal/operators';
-import { CpaStateService } from './cpa-state.service';
+import { FirebaseService } from '../../../core/services/firebase.service';
+import { StateService } from '../../../core/services/state.service';
+import { CpaPayment } from '../../../models/cpaPayment.interface';
+import { UserOnline } from '../../../models/userOnline.type';
 
 @Injectable()
 export class PaymentService {
   private dbKey = 'payments';
-  private userId: string | number | null;
-  private status: boolean;
+  private user: UserOnline;
+  private payDir: PayDir;
 
-  constructor(private fb: FirebaseService, private cpaState: CpaStateService) {
-    this.userId = this.cpaState.userId;
-    this.cpaState.status$.subscribe(status => this.status = status);
+  constructor(private fb: FirebaseService, private state: StateService) {
+    this.state.userOnline$.subscribe(item => this.user = item);
+    this.state.payDir$.subscribe(item => this.payDir = item);
   }
 
   get(): Observable<CpaPayment[]> {
     return this.fb.getItems<CpaPayment>(this.dbKey).pipe(
-      map(items => items.filter(item => item.userId === this.userId)),
+      map(items => items.filter(item => item.userId === ((this.user.id) ? this.user.id : null))),
       map(items => items.sort((a, b) => a.date - b.date))
     );
   }

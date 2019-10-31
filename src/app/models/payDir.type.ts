@@ -1,0 +1,1 @@
+type PayDir = boolean | null;

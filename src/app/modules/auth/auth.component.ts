@@ -1,27 +1,30 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './services/auth.service';
-import { UserOnline} from '../../models/userOnline.interface';
+import { StateService } from '../../core/services/state.service';
+import { UserOnline } from '../../models/userOnline.type';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-auth',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.sass']
 })
-export class AuthComponent implements OnInit{
-  private userOnline: UserOnline;
+export class AuthComponent implements OnInit, OnDestroy {
+  private user: UserOnline;
+  private subscrUser: Subscription;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private state: StateService) {}
 
   ngOnInit() {
-    AuthService.userOnline$.subscribe(item => {
-      this.userOnline = item;
-    });
+    this.subscrUser = this.state.userOnline$.subscribe(item => this.user = item);
+  }
+
+  ngOnDestroy() {
+    this.subscrUser.unsubscribe();
   }
 
   exitUser() {
-    AuthService.userOnline$.next({user: null, status: false});
-    console.log(' exit {user: null, status: false}');
+    this.state.userOnline$.next(null);
     this.router.navigate(['/account']);
   }
 

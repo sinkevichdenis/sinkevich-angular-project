@@ -1,24 +1,27 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { CategoryService } from '../../services/category.service';
-import { Observable } from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 
+import { CategoryService } from '../../services/category.service';
+import { PaymentService } from '../../services/payment.service';
+import { StateService } from '../../../../core/services/state.service';
 import { CpaCategory } from '../../../../models/cpaCategory.interface';
 import { CpaPayment } from '../../../../models/cpaPayment.interface';
-import { PaymentService } from '../../services/payment.service';
-import { CpaStateService } from '../../services/cpa-state.service';
+import { UserOnline } from '../../../../models/userOnline.type';
 
 @Component({
   selector: 'app-payment-form',
   templateUrl: './payment-form.component.html',
   styleUrls: ['./payment-form.component.sass']
 })
-export class PaymentFormComponent implements OnInit {
+export class PaymentFormComponent implements OnInit, OnDestroy {
   @Input() public mainColor;
   readonly maxLength = 25;
   private categories: Observable<CpaCategory[]>;
-  private userId: string | number;
-  private status: boolean;
+  private user: UserOnline;
+  private payDir: PayDir;
+  private subscrUser: Subscription;
+  private subscrDir: Subscription;
 
   private payForm = this.fb.group({
     date: [new Date(), Validators.required],
@@ -35,18 +38,22 @@ export class PaymentFormComponent implements OnInit {
     closeOnSelect: true
   };
 
-
   constructor(
     private fb: FormBuilder,
     private categoryService: CategoryService,
     private paymentService: PaymentService,
-    private cpaState: CpaStateService
+    private state: StateService
   ) {}
 
   ngOnInit() {
     this.categories = this.categoryService.get();
-    this.userId = this.cpaState.userId;
-    this.cpaState.status$.subscribe(status => this.status = status);
+    this.subscrUser = this.state.userOnline$.subscribe(item => this.user = item);
+    this.subscrDir = this.state.payDir$.subscribe(item => this.payDir = item);
+  }
+
+  ngOnDestroy() {
+    this.subscrUser.unsubscribe();
+    this.subscrDir.unsubscribe();
   }
 
   get date(): AbstractControl {
@@ -65,8 +72,10 @@ export class PaymentFormComponent implements OnInit {
     return this.payForm.get('text');
   }
 
-  onSubmit() {
-    this.paymentService.add(this.createPayment());
+  onSubmit(): void {
+    if (this.user) {
+      this.paymentService.add(this.createPayment());
+    }
     this.payForm.reset();
   }
 
@@ -74,10 +83,10 @@ export class PaymentFormComponent implements OnInit {
     return {
       date: new Date(this.date.value).getTime(),
       catId: this.category.value,
-      userId: this.userId,
+      userId: this.user.id,
       currency: 'BYN',
       value: this.value.value,
-      status: this.status,
+      status: this.payDir,
       text: this.text.value
     };
   }

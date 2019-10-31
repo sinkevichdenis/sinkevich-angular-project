@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { StateService } from '../../../../core/services/state.service';
 import { User } from '../../../../models/user.interface';
 import { find, map } from 'rxjs/internal/operators';
 
@@ -8,7 +9,7 @@ import { find, map } from 'rxjs/internal/operators';
   selector: 'app-registration',
   templateUrl: './registration.component.html'
 })
-export class RegistrationComponent  {
+export class RegistrationComponent {
   private emailRegEx = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
 
   private regForm = this.fb.group({
@@ -18,7 +19,11 @@ export class RegistrationComponent  {
     email: ['', [Validators.required, Validators.pattern(this.emailRegEx)]]
   });
 
-  constructor(private fb: FormBuilder, public auth: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    public auth: AuthService,
+    public state: StateService
+  ) {}
 
   get name(): AbstractControl {
     return this.regForm.get('name');
@@ -62,10 +67,6 @@ export class RegistrationComponent  {
     this.auth.getUserWithId(user.name).subscribe(item => {
       user = Object.assign({}, item);
     });
-    const streamNext = {
-      user,
-      status: true
-    };
-    AuthService.userOnline$.next(streamNext);
+    this.state.userOnline$.next(user);
   }
 }

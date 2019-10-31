@@ -3,9 +3,7 @@ import { AngularFirestore} from 'angularfire2/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class FirebaseService {
 
   constructor(private afs: AngularFirestore) {}

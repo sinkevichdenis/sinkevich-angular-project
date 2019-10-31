@@ -1,23 +1,24 @@
-import { AfterViewInit, Component, OnInit} from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import {Observable, of, Subscription} from 'rxjs';
 import { CategoryService } from '../../services/category.service';
-import { User } from '../../../../models/user.interface';
-import { Observable, of} from 'rxjs';
 import { CpaCategory } from '../../../../models/cpaCategory.interface';
-import { CpaStateService } from '../../services/cpa-state.service';
-import {AuthService} from '../../../auth/services/auth.service';
+import { StateService } from '../../../../core/services/state.service';
+import { UserOnline } from '../../../../models/userOnline.type';
 
 @Component({
   selector: 'app-category-form',
   templateUrl: './category-form.component.html',
   styleUrls: ['./category-form.component.sass']
 })
-export class CategoryFormComponent implements OnInit, AfterViewInit {
-  private status: boolean;
-  private user: User;
+export class CategoryFormComponent implements OnInit, AfterViewInit, OnDestroy {
+  private payDir: PayDir;
+  private user: UserOnline;
   private categories: CpaCategory[];
   private editableStatus = false;
   private input: HTMLElement;
+  private subscrUser: Subscription;
+  private subscrDir: Subscription;
 
   private catForm = this.fb.group({
     title: ['', Validators.required, this.checkTitle.bind(this)],
@@ -27,14 +28,18 @@ export class CategoryFormComponent implements OnInit, AfterViewInit {
   constructor(
     private fb: FormBuilder,
     private categoryService: CategoryService,
-    private cpaState: CpaStateService,
-    private auth: AuthService
+    private state: StateService
   ) {}
 
   ngOnInit() {
     this.categoryService.get().subscribe(items => this.categories = [...items]);
-    this.cpaState.status$.subscribe(status => this.status = status);
-    AuthService.userOnline$.subscribe(userOnline => this.user = userOnline.user);
+    this.subscrUser = this.state.userOnline$.subscribe(item => this.user = item);
+    this.subscrDir = this.state.payDir$.subscribe(item => this.payDir = item);
+  }
+
+  ngOnDestroy() {
+    this.subscrUser.unsubscribe();
+    this.subscrDir.unsubscribe();
   }
 
   ngAfterViewInit() {
@@ -59,11 +64,13 @@ export class CategoryFormComponent implements OnInit, AfterViewInit {
   }
 
   add(value: string): void {
-    this.categoryService.add({
-      title: value,
-      status: this.status,
-      userId: this.user.id
-    });
+    if (this.user) {
+      this.categoryService.add({
+        title: value,
+        status: this.payDir,
+        userId: this.user.id
+      });
+    }
     this.clear();
   }
 

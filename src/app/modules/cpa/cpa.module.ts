@@ -18,13 +18,16 @@ import { BalanceContainerComponent } from './components/balance-container/balanc
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
-import { CurrencyDirective } from './directives/currency.directive';
-import { CpaRoutingService } from './services/cpa-routing.service';
-import { CpaStateService } from './services/cpa-state.service';
-import { CategoryService } from './services/category.service';
-import { PaymentService } from './services/payment.service';
 import { DateRangeFormComponent } from './components/date-range-form/date-range-form.component';
 import { PaymentContainerComponent } from './components/payment-container/payment-container.component';
+
+// custom directive
+import { CurrencyDirective } from './directives/currency.directive';
+
+// services
+import { CpaRoutingService } from './services/cpa-routing.service';
+import { CategoryService } from './services/category.service';
+import { PaymentService } from './services/payment.service';
 
 const routes = CpaRoutingService.routes;
 
@@ -56,7 +59,6 @@ const routes = CpaRoutingService.routes;
   ],
   providers: [
     CpaRoutingService,
-    CpaStateService,
     CategoryService,
     PaymentService
   ]

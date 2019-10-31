@@ -17,6 +17,19 @@ form
     max-width: 25%
     margin: .7em
     font-size: 1em
+    background-color: $backDark
 
     &[disabled]
       opacity: .5
+      cursor: default
+
+      &:hover
+        background-color: indianred
+
+    &:hover
+      color: black
+      background-color: $backLight
+
+    &:active
+      transition: .05s
+      box-shadow: 0 0 1em black

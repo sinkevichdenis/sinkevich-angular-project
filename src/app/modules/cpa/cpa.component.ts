@@ -1,9 +1,10 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { Nav } from '../../models/nav.interface';
-import { AuthService } from '../auth/services/auth.service';
-import { UserOnline } from '../../models/userOnline.interface';
 import { CpaRoutingService } from './services/cpa-routing.service';
+import { StateService } from '../../core/services/state.service';
+import { Nav } from '../../models/nav.interface';
+import { UserOnline } from '../../models/userOnline.type';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-cpa',
@@ -11,7 +12,7 @@ import { CpaRoutingService } from './services/cpa-routing.service';
   styleUrls: ['./cpa.component.sass'],
   encapsulation: ViewEncapsulation.None
 })
-export class CpaComponent implements  OnInit{
+export class CpaComponent implements  OnInit, OnDestroy {
   links: Nav[] = [
     {
       path: 'balance',
@@ -35,16 +36,25 @@ export class CpaComponent implements  OnInit{
     }
   ];
 
-  private userOnline: UserOnline;
+  private user: UserOnline;
+  private subscrUser: Subscription;
 
-  constructor(private router: Router, private cpaRouting: CpaRoutingService) {}
+  constructor(
+    private router: Router,
+    private cpaRouting: CpaRoutingService,
+    private state: StateService
+  ) {}
 
   ngOnInit() {
-    AuthService.userOnline$.subscribe(item => {
-      this.userOnline = item;
-      if (item.status) {
+    this.subscrUser = this.state.userOnline$.subscribe(item => {
+      this.user = item;
+      if (item) {
         this.cpaRouting.navigateVisitor();
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.subscrUser.unsubscribe();
   }
 }

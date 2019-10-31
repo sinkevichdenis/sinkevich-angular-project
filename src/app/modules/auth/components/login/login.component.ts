@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import {AuthService} from '../../services/auth.service';
-import {User} from '../../../../models/user.interface';
+import { User } from '../../../../models/user.interface';
+import { StateService } from '../../../../core/services/state.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,11 @@ export class LoginComponent {
     password: ['111111', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, public auth: AuthService) {}
+  constructor(
+    private fb: FormBuilder,
+    public auth: AuthService,
+    public state: StateService
+  ) {}
 
   get name(): AbstractControl {
     return this.logForm.get('name');
@@ -29,19 +34,15 @@ export class LoginComponent {
   validateUser( name = this.name.value, password = this.password.value ): void {
     const visitor = this.users.find(item => item.name === name);
     console.log('visitor', visitor);
-    const streamNext = {
-      user: null,
-      status: false
-    };
+    let streamNext = null;
 
     if (visitor) {
-      streamNext.user = (visitor.password === password) ? Object.assign({}, visitor) : null;
-      streamNext.status = !!streamNext.user;
+      streamNext = (visitor.password === password) ? Object.assign({}, visitor) : null;
       console.log('enter', JSON.stringify(streamNext));
-      AuthService.userOnline$.next(streamNext);
+      this.state.userOnline$.next(streamNext);
     }
 
-    if (!streamNext.status) {
+    if (!streamNext) {
       this.isFormValid = false;
       setTimeout(() => this.isFormValid = true, 3000);
     }

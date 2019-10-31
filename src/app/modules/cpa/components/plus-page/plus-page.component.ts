@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { CpaStateService } from '../../services/cpa-state.service';
+import { StateService } from '../../../../core/services/state.service';
 
 @Component({
   selector: 'app-plus-page',
   templateUrl: './plus-page.component.html'
 })
-export class PlusPageComponent implements OnInit{
-  private mainColor = 'green';
-  private status = true;
+export class PlusPageComponent implements OnInit {
+  public mainColor = 'green';
+  public status = true;
 
-  constructor( private cpaState: CpaStateService ) {}
+  constructor( private state: StateService ) {}
 
   ngOnInit() {
-    this.cpaState.status$.next(this.status);
+    this.state.payDir$.next(this.status);
   }
 }

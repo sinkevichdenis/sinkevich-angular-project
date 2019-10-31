@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
-import {CanLoad, CanActivateChild, Router} from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { CanLoad, CanActivateChild, Router } from '@angular/router';
+import { StateService } from '../../../core/services/state.service';
 
 
 @Injectable()
 export class AuthGuard implements CanLoad, CanActivateChild {
   private isUserOnline = false;
 
-  constructor(private auth: AuthService, private router: Router) {
-    AuthService.userOnline$.subscribe(item => {
-      this.isUserOnline = !!item.user;
-    });
+  constructor(private state: StateService, private router: Router) {
+    this.state.userOnline$.subscribe(item => this.isUserOnline = !!item);
   }
 
   canLoad(): boolean {
