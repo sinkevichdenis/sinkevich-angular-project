@@ -1,13 +1,13 @@
 <form [formGroup]="catForm">
   <label>
-    <p>Категория (управление):</p>
+    <span>Категория (управление):</span>
     <input
       id="categoryTitleInput"
       formControlName="title"
       type="text">
-    <p class="error" *ngIf="title.errors?.notUnique">
+    <span class="error" *ngIf="title.errors?.notUnique">
       Название уже существует
-    </p>
+    </span>
   </label>
 
   <label *ngIf="editableStatus">
@@ -15,9 +15,9 @@
       formControlName="newTitle"
       type="text"
       placeholder="Новое название">
-    <p class="error" *ngIf="newTitle.errors?.notUnique">
+    <span class="error" *ngIf="newTitle.errors?.notUnique">
       Название уже существует
-    </p>
+    </span>
   </label>
 
   <div *ngIf="!editableStatus">
