@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './modules/routing/app-routing.module';
 import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 import { FooterModule } from './modules/footer/footer.module';
 import { HeaderModule } from './modules/header/header.module';
@@ -24,14 +25,15 @@ import { FeedbackComponent } from './modules/feedbacks-page/components/feedback/
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    CoreModule,
+    SharedModule,
     HeaderModule,
     FooterModule,
     AccountPageModule,
     ContactsPageModule,
     FeedbacksPageModule,
     HomePageModule,
-    ErrorPageModule,
-    CoreModule
+    ErrorPageModule
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]

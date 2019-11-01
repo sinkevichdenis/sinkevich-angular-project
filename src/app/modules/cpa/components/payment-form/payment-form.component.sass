@@ -1,52 +1,13 @@
-@import "./src/app/general/styles/variables"
-::ng-deep div.wc-date-container
-  width: 100% !important
-  height: 2.9em !important
-  padding: .8em !important
-  padding-left: 1.4em !important
-  border-radius: .5em
-  border: 2px solid $backLight!important
-  border-color: $backLight
-
-  @media (max-width: 768px)
-    font-size: 1em !important
-    padding: .5em !important
-    padding-left: .8em !important
-
-  &:hover
-    border-color: $backDark !important
-    box-shadow: 0 0 .5em grey
-
-  &:focus
-    border-color: $backDark !important
-    box-shadow: 0 0 .6em black
-
-  & > span
-    font-size: 1.2em !important
-    color: black !important
-
-
-::ng-deep .wc-date-popover
-  width: 20em !important
-  height: auto
-  position: absolute !important
-  top: 3em !important
-  left: 2em !important
-  font-size: 16px !important
-  transform: translateX(0)
-
-  @media(max-width: 768px)
-    left: 50% !important
-    height: 24em !important
-    max-width: 17em !important
+@import "./src/app/shared/styles/variables"
 
 form
   text-align: left
 
   & > .button-circle
-    padding: 0.1em 0.3em
+    width: 1.3em
+    height: 1.3em
     margin: .4em
-    transform: translateX(60%)
+    transform: translateX(50%)
     line-height: 1em
     font-size: 7em
     color: black
