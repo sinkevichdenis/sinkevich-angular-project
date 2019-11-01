@@ -1,7 +1,7 @@
 <form [formGroup]="payForm" (ngSubmit)="onSubmit()" >
   <label>
     <span>Дата и время:</span>
-    <angular2-date-picker formControlName="date" [settings]="settings"></angular2-date-picker>
+    <app-datepicker [parentForm]="payForm" [controlName]="'date'"></app-datepicker>
     <span class="error"
        *ngIf="date.touched && date.errors?.required">
       Заполните поле

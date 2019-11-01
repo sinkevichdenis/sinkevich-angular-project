@@ -30,14 +30,6 @@ export class PaymentFormComponent implements OnInit, OnDestroy {
     text: ['', Validators.maxLength(this.maxLength)]
   });
 
-  public settings = {
-    bigBanner: false,
-    timePicker: false,
-    format: 'dd-MM-yyyy',
-    defaultOpen: false,
-    closeOnSelect: true
-  };
-
   constructor(
     private fb: FormBuilder,
     private categoryService: CategoryService,

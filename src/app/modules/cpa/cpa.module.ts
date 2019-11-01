@@ -6,7 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 // library modules
 import { MatToolbarModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
-import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+import { SharedModule } from '../../shared/shared.module';
 
 // feature components
 import { BalancePageComponent } from './components/balance-page/balance-page.component';
@@ -52,7 +52,7 @@ const routes = CpaRoutingService.routes;
     MatTabsModule,
     MatToolbarModule,
     ReactiveFormsModule,
-    AngularDateTimePickerModule
+    SharedModule
   ],
   exports: [
     CpaComponent

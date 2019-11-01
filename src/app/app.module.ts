@@ -14,12 +14,10 @@ import { FeedbacksPageModule } from './modules/feedbacks-page/feedbacks-page.mod
 import { HomePageModule } from './modules/home-page/home-page.module';
 import { ErrorPageModule } from './modules/error-page/error-page.module';
 import { AppComponent } from './app.component';
-import { FeedbackComponent } from './modules/feedbacks-page/components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    FeedbackComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,

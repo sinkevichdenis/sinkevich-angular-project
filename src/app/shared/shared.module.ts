@@ -1,13 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DatapickerComponent } from './components/datapicker/datapicker.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
+import { DatepickerComponent } from './components/datepicker/datepicker.component';
 
 @NgModule({
   declarations: [
-    DatapickerComponent
+    DatepickerComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    AngularDateTimePickerModule
+  ],
+  exports: [
+    AngularDateTimePickerModule,
+    DatepickerComponent
   ]
 })
 export class SharedModule { }
