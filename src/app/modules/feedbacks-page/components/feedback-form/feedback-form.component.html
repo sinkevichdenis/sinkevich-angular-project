@@ -1,0 +1,29 @@
+<form [formGroup]="feedForm">
+  <label>
+    <textarea
+      formControlName="text"
+      placeholder="Оставьте свой отзыв"
+      [maxlength]="maxLength+1">
+    </textarea>
+
+    <span class="error"
+          *ngIf="text.dirty && text.errors?.maxlength">
+      Покороче давай...
+    </span>
+  </label>
+  <div>
+    <button
+      class="button-rect"
+      (click)="clear()"
+      [disabled]="!text.value.length">
+      Очистить
+    </button>
+
+    <button
+      class="button-rect"
+      (click)="submit()"
+      [disabled]="feedForm.invalid">
+      Отправить
+    </button>
+  </div>
+</form>

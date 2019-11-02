@@ -2,5 +2,10 @@
   <div class="feedback-text">
     <p>{{feedback.text}}</p>
   </div>
-  <p class="feedback-name">{{feedback.name}}</p>
+  <p class="feedback-name">
+    {{feedback.name}}
+    <span  *ngIf="feedback.date" class="feedback-date">
+      ( {{feedback.date | date}} )
+    </span>
+  </p>
 </div>

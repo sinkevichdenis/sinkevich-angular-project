@@ -1,0 +1,58 @@
+@import "./src/variables"
+
+form
+  max-width: 50em
+  text-align: center
+  font-size: 1em
+  margin: auto
+
+  & span
+    padding-left: 0
+
+  & textarea
+    width: 85%
+    min-height: 10em
+    padding-left: 1em
+    border-radius: .5em
+    border-color: $backLight
+    font-size: 1.2em
+
+    &:hover
+      border-color: $backDark
+      box-shadow: 0 0 .5em grey
+
+    &:focus
+      border-color: $backDark
+      box-shadow: 0 0 .6em black
+
+  & span.error
+    margin: .5em 0
+    font-size: 1.5em
+    color: red
+    opacity: .8
+
+  & button.button-rect
+    max-width: 35%
+    margin: .7em
+    padding: .7em 1.5em
+    border-radius: .5em
+    background-color: $backDark
+    color: white
+    font-size: 1.3em
+    font-weight: bold
+    transition: .2s
+
+    &[disabled]
+      opacity: .5
+      cursor: default
+
+      &:hover
+        background-color: indianred
+
+    &:hover
+      color: black
+      background-color: $backLight
+
+    &:active
+      transition: .05s
+      box-shadow: 0 0 1em black
