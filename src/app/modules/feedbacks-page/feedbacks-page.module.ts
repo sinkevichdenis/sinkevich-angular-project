@@ -1,10 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FeedbacksPageComponent } from './feedbacks-page.component';
+import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
+import { FeedbackComponent } from './components/feedback/feedback.component';
 
 @NgModule({
   declarations: [
-    FeedbacksPageComponent
+    FeedbacksPageComponent,
+    FeedbackFormComponent,
+    FeedbackComponent
   ],
   imports: [
     CommonModule

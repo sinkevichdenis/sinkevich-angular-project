@@ -1,1 +1,14 @@
-<section>feedbacks works!</section>
+<section class="page feedback page-container">
+  <h1 class="feedback-title">
+    <span class="title">{{'Отзывы о приложении' | uppercase}}</span>
+  </h1>
+  <div class="feedback-container">
+    <ng-template ngFor let-x let-i="index " [ngForOf]="feedbacks">
+      <app-feedback [feedback]=x [invert]="i%2 ? true : false" ></app-feedback>
+    </ng-template>
+  </div>
+  <div class="form-container">
+    <h3 class="attention">Оставить отзыв могут только зарегистрированные пользователи!</h3>
+    <form>Тут форма</form>
+  </div>
+</section>
