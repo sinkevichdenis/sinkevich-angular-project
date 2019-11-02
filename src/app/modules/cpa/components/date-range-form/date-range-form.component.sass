@@ -1,0 +1,81 @@
+@import "./src/variables"
+
+form
+  max-width: 50em
+  margin: auto
+  padding-top: 1em
+  font-size: 1rem
+
+  & .wrapper
+    width: 100%
+    display: flex
+    justify-content: space-around
+    align-items: center
+
+    @media (max-width: 992px)
+      flex-direction: column
+
+    @media(max-width: 768px)
+      font-size: .8em
+
+    @media(max-width: 576px)
+      font-size: .7em
+
+  & .wrapper-datepicker
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+    @media (max-width: 992px)
+      width: 30%
+      margin: .5em 0
+
+    @media(max-width: 768px)
+      width: 40%
+
+    @media (max-width: 576px)
+      width: 45%
+
+    @media (max-width: 355px)
+      width: 50%
+
+    & span
+      margin-right: .8em
+
+      @media (max-width: 992px)
+        margin: 0
+
+      @media (max-width: 576px)
+        margin-right: .5em
+
+  & span
+    font-size: 1.3em
+    word-spacing: .2em
+    opacity: .9
+
+button.button-rect
+  padding: .5em 1.5em
+  margin: .5em
+  color: white
+  background-color: $backDark
+  border-radius: .5em
+  font-size: 1.2em
+  font-weight: bold
+  font-family: Arial
+  transition: .2s
+  cursor: pointer
+
+  &[disabled]
+    opacity: .5
+    cursor: default
+
+    &:hover
+      background-color: indianred
+
+  &:hover
+    color: black
+    background-color: $backLight
+
+  &:active
+    transition: .05s
+    box-shadow: 0 0 1em black

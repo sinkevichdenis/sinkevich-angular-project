@@ -26,17 +26,44 @@
     font-size: 1.2em !important
     color: black !important
 
-
 ::ng-deep .wc-date-popover
   width: 20em !important
   height: auto
   position: absolute !important
   top: 3em !important
   left: 2em !important
-  font-size: 16px !important
+  font-size: 1rem !important
   transform: translateX(0)
 
   @media(max-width: 768px)
     left: 50% !important
-    height: 24em !important
+    height: 21em !important
     max-width: 17em !important
+
+    & table
+      font-size: .8em !important
+
+    & span
+      padding: 4px !important
+
+::ng-deep .history
+  & div.wc-date-container
+    width: 11em !important
+    padding: .6em .9em !important
+    font-size: .9em !important
+
+    @media(max-width: 768px)
+      padding: .4em .9em !important
+
+    @media (max-width: 576px)
+      padding: .2em .9em !important
+
+  & div.wc-date-popover
+    width: 16em !important
+    left: -4em !important
+
+    @media(max-width: 768px)
+      left: 3em !important
+
+    @media(max-width: 576px)
+      left: 2.6em !important

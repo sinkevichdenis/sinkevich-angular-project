@@ -1,0 +1,27 @@
+<form [formGroup]="rangeForm">
+  <div class="wrapper">
+    <span> Показать платежи </span>
+    <div class="wrapper-datepicker">
+      <span> с </span>
+      <app-datepicker [parentForm]="rangeForm" [controlName]="'fromDate'"></app-datepicker>
+    </div>
+    <div class="wrapper-datepicker">
+      <span>по </span>
+      <app-datepicker [parentForm]="rangeForm" [controlName]="'toDate'"></app-datepicker>
+    </div>
+
+    <button
+      class="button-rect"
+      (click)="onSubmit()"
+      [disabled]="fromDate.errors?.required || toDate.errors?.required">
+      Показать
+    </button>
+  </div>
+  <div class="error">
+    <span class="error"
+      *ngIf="fromDate.touched && fromDate.errors?.required
+       || toDate.touched && toDate.errors?.required">
+      Укажите период  для поиска
+    </span>
+  </div>
+</form>
