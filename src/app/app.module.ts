@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+
 import { AppRoutingModule } from './modules/routing/app-routing.module';
 import { AuthGuard } from './modules/auth/guards/auth.guard';
 import { CoreModule } from './core/core.module';
@@ -14,6 +17,8 @@ import { FeedbacksPageModule } from './modules/feedbacks-page/feedbacks-page.mod
 import { HomePageModule } from './modules/home-page/home-page.module';
 import { ErrorPageModule } from './modules/error-page/error-page.module';
 import { AppComponent } from './app.component';
+
+registerLocaleData(localeRu, 'ru');
 
 @NgModule({
   declarations: [
@@ -33,7 +38,10 @@ import { AppComponent } from './app.component';
     HomePageModule,
     ErrorPageModule
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    { provide: LOCALE_ID, useValue: 'ru' }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
