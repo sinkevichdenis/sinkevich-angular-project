@@ -63,13 +63,17 @@ export class CategoryFormComponent implements OnInit, AfterViewInit, OnDestroy {
     return result ? result : null;
   }
 
+  createPostData(value: string): CpaCategory {
+    return {
+      title: value.trim(),
+      status: this.payDir,
+      userId: this.user.id
+    };
+  }
+
   add(value: string): void {
     if (this.user) {
-      this.categoryService.add({
-        title: value,
-        status: this.payDir,
-        userId: this.user.id
-      });
+      this.categoryService.add(this.createPostData(value));
     }
     this.clear();
   }

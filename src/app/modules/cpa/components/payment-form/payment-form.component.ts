@@ -77,9 +77,9 @@ export class PaymentFormComponent implements OnInit, OnDestroy {
       catId: this.category.value,
       userId: this.user.id,
       currency: 'BYN',
-      value: this.value.value,
+      value: this.value.value.trim(),
       status: this.payDir,
-      text: this.text.value
+      text: this.text.value.trim()
     };
   }
 }
