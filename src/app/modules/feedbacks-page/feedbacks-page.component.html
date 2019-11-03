@@ -3,12 +3,12 @@
     <span class="title">{{'Отзывы о приложении' | uppercase}}</span>
   </h1>
   <div class="feedback-container">
-    <ng-template ngFor let-x let-i="index " [ngForOf]="feedbacks">
+    <ng-template ngFor let-x let-i="index " [ngForOf]="feedbacks | async">
       <app-feedback [feedback]=x [invert]="i%2 ? true : false" ></app-feedback>
     </ng-template>
   </div>
   <div class="form-container">
-    <h3 class="attention">Оставить отзыв могут только зарегистрированные пользователи!</h3>
-    <app-feedback-form></app-feedback-form>
+    <h3 *ngIf="!user" class="attention">Оставить отзыв могут только зарегистрированные пользователи!</h3>
+    <app-feedback-form *ngIf="user" [user]="user"></app-feedback-form>
   </div>
 </section>

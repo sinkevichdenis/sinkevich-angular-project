@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import {StateService} from '../../../../core/services/state.service';
+import { Component, Input } from '@angular/core';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { FeedbackService } from '../../services/feedback.service';
+import { UserOnline } from '../../../../models/userOnline.type';
+import { Feedback } from '../../../../models/feedback.interface';
 
 @Component({
   selector: 'app-feedback-form',
@@ -8,7 +10,8 @@ import {StateService} from '../../../../core/services/state.service';
   styleUrls: ['./feedback-form.component.sass']
 })
 export class FeedbackFormComponent {
-  private maxLength = 10;
+  @Input() user: UserOnline;
+  readonly maxLength = 1000;
 
   private feedForm = this.fb.group({
     text: ['', [Validators.required, Validators.maxLength(this.maxLength)]]
@@ -16,7 +19,7 @@ export class FeedbackFormComponent {
 
   constructor(
     private fb: FormBuilder,
-    private stateService: StateService
+    private feedbackService: FeedbackService
   ) { }
 
   get text(): AbstractControl {
@@ -27,8 +30,18 @@ export class FeedbackFormComponent {
     this.feedForm.reset();
   }
 
-  submit(): void {
-
+  createPostData(): Feedback {
+    return {
+      text: this.text.value.trim(),
+      name: this.user.name,
+      date: Date.now(),
+      city: '',
+      stars: 0
+    };
   }
 
+  submit(): void {
+    this.feedbackService.add(this.createPostData());
+    this.clear();
+  }
 }

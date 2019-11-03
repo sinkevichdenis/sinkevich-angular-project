@@ -1,43 +1,32 @@
-import { Component, OnInit } from '@angular/core';
-import {Feedback} from '../../models/feedback.interface';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
+import { StateService } from '../../core/services/state.service';
+import { FeedbackService } from './services/feedback.service';
+import { Feedback } from '../../models/feedback.interface';
+import { UserOnline } from '../../models/userOnline.type';
 
 @Component({
   selector: 'app-feedbacks-page',
   templateUrl: './feedbacks-page.component.html',
   styleUrls: ['./feedbacks-page.component.sass']
 })
-export class FeedbacksPageComponent implements OnInit {
-  feedbacks: Feedback[] = [
-    {
-      name: 'Екатерина',
-      text: 'Отлично работает! Никаких нареканий. Пользуюсь каждый день!',
-      city: 'Москва',
-      stars: null,
-      date: Date.now()
-    }, {
-      name: 'Никодим',
-      text: 'Даже такой раздолбай как я, смог без труда освоить эту систему домашнего бухгалтера.',
-      city: 'Санкт-Петербург',
-      stars: null,
-      date: Date.now()
-    }, {
-      name: 'Александр',
-      text: 'Спасибо за отичное качество. Пользуемся всей семьёй и реально помогает экономить!',
-      city: 'Воронеж',
-      stars: null,
-      date: Date.now()
-    }, {
-      name: 'Ольга',
-      text: 'Меня все устравивает. Всем советую!',
-      city: 'Москва',
-      stars: null,
-      date: Date.now()
-    }
-  ];
+export class FeedbacksPageComponent implements OnInit, OnDestroy {
+  private subscrUser: Subscription;
+  private feedbacks: Observable<Feedback[]>;
+  private user: UserOnline;
 
-  constructor() { }
+  constructor(
+    private state: StateService,
+    private feedbackService: FeedbackService
+  ) { }
 
   ngOnInit() {
+    this.feedbacks = this.feedbackService.get();
+    this.subscrUser = this.state.userOnline$.subscribe(item => this.user = item);
+  }
+
+  ngOnDestroy() {
+    this.subscrUser.unsubscribe();
   }
 
 }
