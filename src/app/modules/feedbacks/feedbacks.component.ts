@@ -7,10 +7,10 @@ import { UserOnline } from '../../models/userOnline.type';
 
 @Component({
   selector: 'app-feedbacks-page',
-  templateUrl: './feedbacks-page.component.html',
-  styleUrls: ['./feedbacks-page.component.sass']
+  templateUrl: './feedbacks.component.html',
+  styleUrls: ['./feedbacks.component.sass']
 })
-export class FeedbacksPageComponent implements OnInit, OnDestroy {
+export class FeedbacksComponent implements OnInit, OnDestroy {
   private subscrUser: Subscription;
   private feedbacks: Observable<Feedback[]>;
   private user: UserOnline;

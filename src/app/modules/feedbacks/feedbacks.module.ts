@@ -1,23 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FeedbacksPageComponent } from './feedbacks-page.component';
+import { RouterModule } from '@angular/router';
+import { FeedbacksComponent } from './feedbacks.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { FeedbackService } from './services/feedback.service';
 
 @NgModule({
   declarations: [
-    FeedbacksPageComponent,
+    FeedbacksComponent,
     FeedbackFormComponent,
     FeedbackComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule.forChild([{ path: '', component: FeedbacksComponent }]),
   ],
   providers: [
     FeedbackService
   ]
 })
-export class FeedbacksPageModule {}
+export class FeedbacksModule {}
