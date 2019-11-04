@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/internal/operators';
 import { StateService } from '../../core/services/state.service';
 import { FeedbackService } from './services/feedback.service';
 import { Feedback } from '../../models/feedback.interface';
@@ -17,11 +19,15 @@ export class FeedbacksComponent implements OnInit, OnDestroy {
 
   constructor(
     private state: StateService,
-    private feedbackService: FeedbackService
-  ) { }
+    private feedbackService: FeedbackService,
+    private route: ActivatedRoute
+  ) {
+    this.feedbacks = this.route.data.pipe(
+      map(data => data.feedbacks )
+    );
+  }
 
   ngOnInit() {
-    this.feedbacks = this.feedbackService.get();
     this.subscrUser = this.state.userOnline$.subscribe(item => this.user = item);
   }
 
