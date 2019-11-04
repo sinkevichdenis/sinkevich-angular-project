@@ -7,6 +7,7 @@ import { FeedbacksComponent } from './feedbacks.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { FeedbackService } from './services/feedback.service';
+import {SharedModule} from '../../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FeedbackService } from './services/feedback.service';
   ],
   imports: [
     CommonModule,
+    SharedModule,
     ReactiveFormsModule,
     RouterModule.forChild([{
       path: '',

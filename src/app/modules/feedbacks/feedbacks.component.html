@@ -3,9 +3,17 @@
     <span class="title">{{'Отзывы о приложении' | uppercase}}</span>
   </h1>
   <div class="feedback-container">
-    <ng-template ngFor let-x let-i="index " [ngForOf]="feedbacks | async">
+    <ng-template ngFor let-x let-i="index " [ngForOf]="(feedbacksCurrent | async)">
       <app-feedback [feedback]=x [invert]="i%2 ? true : false" ></app-feedback>
     </ng-template>
+
+    <app-paginator
+      [length]="lengthFeedArr"
+      [pageSize]="pageSize"
+      [lowValue]="lowValue"
+      [highValue]="highValue"
+      (page)="pageChange($event)"
+    ></app-paginator>
   </div>
   <div class="form-container">
     <h3 *ngIf="!user" class="attention">Оставить отзыв могут только зарегистрированные пользователи!</h3>

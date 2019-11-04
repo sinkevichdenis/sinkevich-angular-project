@@ -1,0 +1,24 @@
+.feedback
+  ::ng-deep & .mat-paginator-container
+    font-size: 1.5em
+
+    @media (max-width: 576px)
+      font-size: 1.2em
+
+  ::ng-deep & .mat-paginator
+    background-color: transparent
+    color: black
+    opacity: .9
+
+  ::ng-deep & .mat-icon-button[disabled][disabled]
+    color: grey
+
+  ::ng-deep & .mat-icon-button
+    @media (max-width: 576px)
+      width: auto
+
+  ::ng-deep & .mat-paginator-page-size
+    display: none
+
+  ::ng-deep & .mat-paginator-range-actions
+    margin: auto 1em
