@@ -14,7 +14,7 @@ export class FeedbackFormComponent {
   readonly maxLength = 1000;
 
   private feedForm = this.fb.group({
-    text: ['', [Validators.required, Validators.maxLength(this.maxLength)]]
+    text: [null, [Validators.required, Validators.maxLength(this.maxLength)]]
   });
 
   constructor(
