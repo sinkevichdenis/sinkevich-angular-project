@@ -1,0 +1,25 @@
+<div class="wrapper-elem">
+  <div class="wrapper-text">
+    <p class="date">Date date</p>
+    <p class="text">history-element works!</p>
+  </div>
+    <p class="value">цена</p>
+  <div class="wrapper-buttons">
+    <ng-container *ngIf="editable">
+      <div class="button btn-agree" (click)="agree()">
+        <img src="./assets/icons/agree-icon.png" alt="agree-icon">
+      </div>
+      <div class="button btn-agree" (click)="cancel()">
+        <img src="./assets/icons/cancel-icon.png" alt="cancel-icon">
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!editable">
+      <div class="button btn-edit" (click)="edit()">
+        <img src="./assets/icons/edit-icon.png" alt="edit-icon">
+      </div>
+      <div class="button btn-delete" (click)="delete()">
+        <img src="./assets/icons/delete-icon.png" alt="delete-icon">
+      </div>
+    </ng-container>
+  </div>
+</div>
