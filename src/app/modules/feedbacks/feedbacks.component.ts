@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import {Observable, of, Subscription} from 'rxjs';
 import {map, skip, take, tap} from 'rxjs/internal/operators';
 import { StateService } from '../../core/services/state.service';
 import { FeedbackService } from './services/feedback.service';
@@ -14,6 +13,7 @@ import { UserOnline } from '../../models/userOnline.type';
 })
 export class FeedbacksComponent implements OnInit, OnDestroy {
   private subscrUser: Subscription;
+  private subscrFeed: Subscription;
   private feedbacks: Observable<Feedback[]>;
   private feedbacksCurrent: Observable<Feedback[]>;
   private user: UserOnline;
@@ -24,44 +24,33 @@ export class FeedbacksComponent implements OnInit, OnDestroy {
   readonly pageSize = this.highValue - this.lowValue;
 
   constructor(
-    private state: StateService,
-    private feedbackService: FeedbackService,
-    private route: ActivatedRoute
+    private state: StateService
   ) {}
 
   ngOnInit(): void {
     this.subscrUser = this.state.userOnline$.subscribe(item => this.user = item);
-    this.feedbacks = this.route.data.pipe(
-      map(data => {
-        this.lengthFeedArr = data.feedbacks.length;
-        console.log('this.lengthFeedArr', this.lengthFeedArr);
-        return data.feedbacks;
-      })
-    );
-    this.feedCurrentChange(this.lowValue, this.highValue);
+    this.subscrFeed = this.state.feedbacks$.subscribe(item => {
+      this.lengthFeedArr = (item) ? item.length : 0;
+      this.feedbacks = of((item) ? item : []);
+      this.feedCurrentChange(this.lowValue);
+    });
   }
 
   ngOnDestroy(): void {
     this.subscrUser.unsubscribe();
+    this.subscrFeed.unsubscribe();
   }
 
   pageChange(event): void {
     this.lowValue = event.low;
     this.highValue = event.high;
-    this.feedCurrentChange(this.lowValue, this.highValue);
+    this.feedCurrentChange(this.lowValue);
   }
 
-  feedCurrentChange(low: number, high: number): void {
-/*    if (this.feedbacksCurrent) {
-      console.log('null');
-      this.feedbacksCurrent = null;
-    }*/
+  feedCurrentChange(low: number, step: number = this.pageSize): void {
     this.feedbacksCurrent = this.feedbacks.pipe(
-      tap(items => console.log('startItems', items)),
       map(items => {
-          console.log('items', items.slice(low , high - low));
-          console.log('low-high', low, high);
-          return items.slice(low , high - low);
+          return items.slice(low , low + step);
       })
     );
   }

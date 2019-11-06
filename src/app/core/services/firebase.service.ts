@@ -11,6 +11,7 @@ export class FirebaseService {
   getItems<T>(path: string): Observable<T[]> {
     return this.afs.collection(path).snapshotChanges().pipe(
       map(changes => {
+        console.log('firebase', changes);
         return changes.map( x => {
           const data = x.payload.doc.data() as any;
           data.id = x.payload.doc.id;
