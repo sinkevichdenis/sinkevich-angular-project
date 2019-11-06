@@ -24,7 +24,7 @@
     <button
       class="button-rect"
       (click)="add(title.value)"
-      [disabled]="title.errors?.notUnique" >
+      [disabled]="title.errors?.required || title.errors?.notUnique" >
       Добавить
     </button>
 

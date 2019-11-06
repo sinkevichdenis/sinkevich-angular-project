@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/internal/operators';
+import {map, tap} from 'rxjs/internal/operators';
 import { FirebaseService } from '../../../core/services/firebase.service';
 import { StateService } from '../../../core/services/state.service';
 import { CpaCategory } from '../../../models/cpaCategory.interface';
@@ -22,6 +22,7 @@ export class CategoryService {
       map(items => items.filter(item =>
         item.userId === ((!!this.user) ? this.user.id : null)
         && item.status === this.payDir)),
+      tap(items => console.log('localeCompare', items)),
       map(items => items.sort((a, b) => a.title.localeCompare(b.title)))
     );
   }

@@ -20,6 +20,8 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
 import { CategoryFormComponent } from './components/category-form/category-form.component';
 import { DateRangeFormComponent } from './components/date-range-form/date-range-form.component';
 import { PaymentContainerComponent } from './components/payment-container/payment-container.component';
+import { HistoryListComponent } from './components/history-list/history-list.component';
+import { HistoryElementComponent } from './components/history-element/history-element.component';
 
 // custom directive
 import { CurrencyDirective } from './directives/currency.directive';
@@ -44,7 +46,9 @@ const routes = CpaRoutingService.routes;
     CategoryFormComponent,
     CurrencyDirective,
     DateRangeFormComponent,
-    PaymentContainerComponent
+    PaymentContainerComponent,
+    HistoryListComponent,
+    HistoryElementComponent
   ],
   imports: [
     CommonModule,
