@@ -6,7 +6,7 @@
     <p class="value">{{payment.value | currency: 'BYN'}}</p>
   <div class="wrapper-buttons">
     <ng-container *ngIf="editable">
-      <div class="button btn-agree" (click)="agree()">
+      <div class="button btn-agree" (click)="agree(payment)">
         <img src="./assets/icons/agree-icon.png" alt="agree-icon">
       </div>
       <div class="button btn-agree" (click)="cancel()">
@@ -14,10 +14,10 @@
       </div>
     </ng-container>
     <ng-container *ngIf="!editable">
-      <div class="button btn-edit" (click)="edit()">
+      <div class="button btn-edit" (click)="edit(payment)">
         <img src="./assets/icons/edit-icon.png" alt="edit-icon">
       </div>
-      <div class="button btn-delete" (click)="delete()">
+      <div class="button btn-delete" (click)="delete(payment)">
         <img src="./assets/icons/delete-icon.png" alt="delete-icon">
       </div>
     </ng-container>

@@ -16,7 +16,6 @@ import { HistoryPageComponent } from './components/history-page/history-page.com
 import { CpaComponent } from './cpa.component';
 import { BalanceContainerComponent } from './components/balance-container/balance-container.component';
 import { PaymentFormComponent } from './components/payment-form/payment-form.component';
-import { CalculatorComponent } from './components/calculator/calculator.component';
 import { CategoryFormComponent } from './components/category-form/category-form.component';
 import { DateRangeFormComponent } from './components/date-range-form/date-range-form.component';
 import { PaymentContainerComponent } from './components/payment-container/payment-container.component';
@@ -42,7 +41,6 @@ const routes = CpaRoutingService.routes;
     CpaComponent,
     BalanceContainerComponent,
     PaymentFormComponent,
-    CalculatorComponent,
     CategoryFormComponent,
     CurrencyDirective,
     DateRangeFormComponent,

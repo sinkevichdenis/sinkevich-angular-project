@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {CpaPayment} from '../../../../models/cpaPayment.interface';
+import {PaymentService} from '../../services/payment.service';
 
 @Component({
   selector: 'app-history-element',
@@ -10,13 +11,15 @@ export class HistoryElementComponent implements OnInit {
   @Input() payment: CpaPayment;
   private editable = false;
 
-  constructor() { }
+  constructor(
+    private paymentService: PaymentService
+  ) { }
 
   ngOnInit() {
   }
 
-  agree() {
-
+  agree(item: CpaPayment) {
+    this.paymentService.delete(item);
   }
 
   cancel() {
