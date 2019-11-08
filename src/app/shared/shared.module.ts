@@ -7,14 +7,12 @@ import { MatExpansionModule } from '@angular/material/expansion'
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
-import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
     DatepickerComponent,
     PaginatorComponent,
     AccordionComponent,
-    FilterPipe
   ],
   imports: [
     CommonModule,
@@ -27,7 +25,6 @@ import { FilterPipe } from './pipes/filter.pipe';
     DatepickerComponent,
     PaginatorComponent,
     AccordionComponent,
-    FilterPipe
   ]
 })
 export class SharedModule { }
