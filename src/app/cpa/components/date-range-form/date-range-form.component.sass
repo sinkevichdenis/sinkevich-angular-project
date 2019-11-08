@@ -1,6 +1,6 @@
 @import "./src/variables"
 
-form
+form.range
   max-width: 50em
   margin: auto
   padding-top: 1em
@@ -48,10 +48,10 @@ form
       @media (max-width: 576px)
         margin-right: .5em
 
-  & span
+  ::ng-deep & span
     font-size: 1.3em
     word-spacing: .2em
-    opacity: .9
+    opacity: .8
 
 button.button-rect
   padding: .5em 1.5em
