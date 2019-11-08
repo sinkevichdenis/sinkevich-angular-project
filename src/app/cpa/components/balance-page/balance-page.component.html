@@ -6,14 +6,14 @@
   <div class="balance container-minus">
     <app-balance-container>
       <span class="title">Потрачено</span>
-      <span class="button">+</span>
+      <div class="button" (click)="goToPage(false)">+</div>
     </app-balance-container>
   </div>
 
   <div class="balance container-plus">
     <app-balance-container>
       <span class="title">Получено</span>
-      <span class="button">+</span>
+      <div class="button" (click)="goToPage(true)">+</div>
     </app-balance-container>
   </div>
 </div>

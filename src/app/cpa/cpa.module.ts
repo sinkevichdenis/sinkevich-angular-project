@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 // library modules
@@ -30,7 +30,12 @@ import { CpaRoutingService } from './services/cpa-routing.service';
 import { CategoryService } from './services/category.service';
 import { PaymentService } from './services/payment.service';
 
-const routes = CpaRoutingService.routes;
+const routes: Route[] = [
+  { path: 'history', component: HistoryPageComponent, pathMatch: 'full' },
+  { path: 'plus', component: PlusPageComponent, pathMatch: 'full' },
+  { path: 'minus', component: MinusPageComponent, pathMatch: 'full' },
+  { path: 'balance', component: BalancePageComponent, pathMatch: 'full' }
+];
 
 @NgModule({
   declarations: [
