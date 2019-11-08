@@ -69,6 +69,7 @@ export class PaymentFormComponent implements OnInit, OnDestroy {
       this.paymentService.add(this.createPayment());
     }
     this.payForm.reset();
+    this.payForm.patchValue({date: new Date()});
   }
 
  createPayment(): CpaPayment {
