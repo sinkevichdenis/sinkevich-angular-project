@@ -113,7 +113,7 @@ export class PaymentFormComponent implements OnInit, OnDestroy {
 
     this.categories.subscribe( items => {
       const catTitle = items.find(item => item.id === this.editPaymentItem.catId).id;
-      this.category.patchValue(catTitle);
+      this.category.setValue(catTitle);
     });
   }
 }
