@@ -1,6 +1,6 @@
 @import "./src/variables"
 
-.container
+.balance-page.container
   min-width: 18em
   margin: 1.5em
   display: flex
@@ -12,35 +12,6 @@
   @media (max-width: 576px)
     margin: 1em
     font-size: .8em
-
-  &-total
-    width: 100%
-    margin: 1em
-    font-size: 2em
-    font-weight: bold
-    font-family: Arial
-    text-align: center
-    opacity: .8
-
-    @media (max-width: 992px)
-      font-size: 1.5em
-
-    @media (max-width: 768px)
-      font-size: 1.2em
-
-  &-minus
-    background-color: rgba(255, 0, 0, .2)
-    border: 1px solid rgba(255, 0, 0, .5)
-
-    ::ng-deep & button
-      background-color: red
-
-  &-plus
-    background-color: rgba(0, 155, 0, .2)
-    border: 1px solid rgba(0, 155, 0, .5)
-
-    ::ng-deep & button
-      background-color: rgb(0, 155, 0)
 
   ::ng-deep & button
     border: 1px solid black
@@ -55,12 +26,42 @@
     &:active
       box-shadow: 0 0 .2em white
 
+  & .container
 
-.balance
-  min-width: 25em
-  max-width: 30em
-  margin: .5em
-  border-radius: .5em
+    &-total
+      width: 100%
+      margin: 1em
+      font-size: 2em
+      font-weight: bold
+      font-family: Arial
+      text-align: center
+      opacity: .8
 
-  @media (max-width: 768px)
-    font-size: .8em
+      @media (max-width: 992px)
+        font-size: 1.5em
+
+      @media (max-width: 768px)
+        font-size: 1.2em
+
+    &-minus
+      background-color: rgba(255, 0, 0, .2)
+      border: 1px solid rgba(255, 0, 0, .5)
+
+      ::ng-deep & button
+        background-color: red
+
+    &-plus
+      background-color: rgba(0, 155, 0, .2)
+      border: 1px solid rgba(0, 155, 0, .5)
+
+      ::ng-deep & button
+        background-color: rgb(0, 155, 0)
+
+  & .balance
+    min-width: 25em
+    max-width: 30em
+    margin: .5em
+    border-radius: .5em
+
+    @media (max-width: 768px)
+      font-size: .8em
