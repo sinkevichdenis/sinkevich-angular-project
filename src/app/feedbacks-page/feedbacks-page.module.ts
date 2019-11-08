@@ -3,15 +3,15 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { FeedbacksResolver } from './feedbacks.resolver';
-import { FeedbacksComponent } from './feedbacks.component';
+import { FeedbacksPageComponent } from './feedbacks-page.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { FeedbackService } from './services/feedback.service';
-import {SharedModule} from '../shared/shared.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
-    FeedbacksComponent,
+    FeedbacksPageComponent,
     FeedbackFormComponent,
     FeedbackComponent
   ],
@@ -21,7 +21,7 @@ import {SharedModule} from '../shared/shared.module';
     ReactiveFormsModule,
     RouterModule.forChild([{
       path: '',
-      component: FeedbacksComponent,
+      component: FeedbacksPageComponent,
       resolve: {
         feedbacks: FeedbacksResolver
       }
@@ -32,4 +32,4 @@ import {SharedModule} from '../shared/shared.module';
     FeedbacksResolver
   ]
 })
-export class FeedbacksModule {}
+export class FeedbacksPageModule {}

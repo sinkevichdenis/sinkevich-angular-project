@@ -13,7 +13,7 @@ import { FooterModule } from './footer/footer.module';
 import { HeaderModule } from './header/header.module';
 import { AccountPageModule } from './account-page/account-page.module';
 import { ContactsPageModule } from './contacts-page/contacts-page.module';
-import { FeedbacksModule } from './feedbacks/feedbacks.module';
+import { FeedbacksPageModule } from './feedbacks-page/feedbacks-page.module';
 import { HomePageModule } from './home-page/home-page.module';
 import { ErrorPageModule } from './error-page/error-page.module';
 import { AppComponent } from './app.component';
@@ -34,7 +34,7 @@ registerLocaleData(localeRu, 'ru');
     FooterModule,
     AccountPageModule,
     ContactsPageModule,
-    FeedbacksModule,
+    FeedbacksPageModule,
     HomePageModule,
     ErrorPageModule
   ],

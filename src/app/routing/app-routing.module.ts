@@ -18,7 +18,7 @@ const routes: Routes = [
     loadChildren: '../cpa/cpa.module#CpaModule'
   },
   { path: 'contacts', component: ContactsPageComponent, pathMatch: 'full'},
-  { path: 'feedbacks', loadChildren: '../feedbacks/feedbacks.module#FeedbacksModule'},
+  { path: 'feedbacks', loadChildren: '../feedbacks-page/feedbacks-page.module#FeedbacksPageModule'},
   { path: '**', component: ErrorPageComponent }
 ];
 
