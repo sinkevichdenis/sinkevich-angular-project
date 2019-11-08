@@ -1,13 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
+import { SharedModule } from '../shared/shared.module';
 import { FeedbacksResolver } from './feedbacks.resolver';
 import { FeedbacksPageComponent } from './feedbacks-page.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 import { FeedbackComponent } from './components/feedback/feedback.component';
 import { FeedbackService } from './services/feedback.service';
-import { SharedModule } from '../shared/shared.module';
+
+const routes: Route[] = [{
+  path: '',
+  component: FeedbacksPageComponent,
+  resolve: {
+    feedbacks: FeedbacksResolver
+  }
+}];
 
 @NgModule({
   declarations: [
@@ -19,13 +27,7 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     SharedModule,
     ReactiveFormsModule,
-    RouterModule.forChild([{
-      path: '',
-      component: FeedbacksPageComponent,
-      resolve: {
-        feedbacks: FeedbacksResolver
-      }
-    }]),
+    RouterModule.forChild(routes),
   ],
   providers: [
     FeedbackService,
