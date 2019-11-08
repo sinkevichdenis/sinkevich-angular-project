@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Output} from '@angular/core';
 import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
-import {DateRange} from '../../../../models/dateRange.interface';
+import {DateRange} from '../../../../core/models/date-range.interface';
 
 @Component({
   selector: 'app-date-range-form',

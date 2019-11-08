@@ -4,7 +4,7 @@ import { tap } from 'rxjs/internal/operators';
 import { PaymentService } from '../../services/payment.service';
 import { StateService } from '../../../../core/services/state.service';
 import { CpaRoutingService } from '../../services/cpa-routing.service';
-import { CpaPayment } from '../../../../models/cpaPayment.interface';
+import { CpaPayment } from '../../../../core/models/cpa-payment.interface';
 
 @Component({
   selector: 'app-history-element',

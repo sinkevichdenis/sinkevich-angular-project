@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Benefit } from '../../../../models/benefit.interface';
+import { Benefit } from '../../../../core/models/benefit.interface';
 
 @Component({
   selector: 'app-benefit',

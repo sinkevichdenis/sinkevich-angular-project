@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators';
 import { FirebaseService } from '../../../core/services/firebase.service';
 import { StateService } from '../../../core/services/state.service';
-import { CpaCategory } from '../../../models/cpaCategory.interface';
-import { UserOnline } from '../../../models/userOnline.type';
+import { CpaCategory } from '../../../core/models/cpa-category.interface';
+import { UserOnline } from '../../../core/models/user-online.type';
 
 @Injectable()
 export class CategoryService {

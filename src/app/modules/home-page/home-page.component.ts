@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Feedback } from '../../models/feedback.interface';
-import { Benefit } from '../../models/benefit.interface';
+import { Feedback } from '../../core/models/feedback.interface';
+import { Benefit } from '../../core/models/benefit.interface';
 
 @Component({
   selector: 'app-home-page',

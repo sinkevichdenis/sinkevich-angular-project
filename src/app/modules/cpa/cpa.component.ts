@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { CpaRoutingService } from './services/cpa-routing.service';
 import { StateService } from '../../core/services/state.service';
-import { Nav } from '../../models/nav.interface';
-import { UserOnline } from '../../models/userOnline.type';
+import { Nav } from '../../core/models/nav.interface';
+import { UserOnline } from '../../core/models/user-online.type';
 import {Subscription} from 'rxjs';
 
 @Component({

@@ -2,7 +2,7 @@ import { Component} from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { StateService } from '../../../../core/services/state.service';
-import { User } from '../../../../models/user.interface';
+import { User } from '../../../../core/models/user.interface';
 import { find, map } from 'rxjs/internal/operators';
 
 @Component({

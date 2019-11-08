@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import { map } from 'rxjs/internal/operators';
 import { FirebaseService } from '../../../core/services/firebase.service';
-import { User } from '../../../models/user.interface';
+import { User } from '../../../core/models/user.interface';
 
 @Injectable({
   providedIn: 'root'

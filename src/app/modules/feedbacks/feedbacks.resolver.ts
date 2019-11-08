@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
 import { FeedbackService } from './services/feedback.service';
-import { Feedback } from '../../models/feedback.interface';
+import { Feedback } from '../../core/models/feedback.interface';
 import { take } from 'rxjs/internal/operators';
 
 @Injectable()

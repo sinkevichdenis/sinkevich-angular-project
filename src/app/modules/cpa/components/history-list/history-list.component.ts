@@ -1,8 +1,8 @@
 import { Component, Input, OnChanges } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/internal/operators';
-import { CpaPayment } from '../../../../models/cpaPayment.interface';
-import { CpaCategory } from '../../../../models/cpaCategory.interface';
+import { CpaPayment } from '../../../../core/models/cpa-payment.interface';
+import { CpaCategory } from '../../../../core/models/cpa-category.interface';
 
 @Component({
   selector: 'app-history-list',

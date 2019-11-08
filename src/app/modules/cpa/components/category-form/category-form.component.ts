@@ -2,9 +2,9 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import {Observable, of, Subscription} from 'rxjs';
 import { CategoryService } from '../../services/category.service';
-import { CpaCategory } from '../../../../models/cpaCategory.interface';
+import { CpaCategory } from '../../../../core/models/cpa-category.interface';
 import { StateService } from '../../../../core/services/state.service';
-import { UserOnline } from '../../../../models/userOnline.type';
+import { UserOnline } from '../../../../core/models/user-online.type';
 
 @Component({
   selector: 'app-category-form',

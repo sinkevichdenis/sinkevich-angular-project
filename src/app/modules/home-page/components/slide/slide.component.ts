@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Slide } from '../../../../models/slide.interface';
+import { Slide } from '../../../../core/models/slide.interface';
 
 @Component({
   selector: 'app-slide',

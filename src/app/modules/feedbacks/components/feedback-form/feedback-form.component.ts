@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { FeedbackService } from '../../services/feedback.service';
-import { UserOnline } from '../../../../models/userOnline.type';
-import { Feedback } from '../../../../models/feedback.interface';
+import { UserOnline } from '../../../../core/models/user-online.type';
+import { Feedback } from '../../../../core/models/feedback.interface';
 
 @Component({
   selector: 'app-feedback-form',

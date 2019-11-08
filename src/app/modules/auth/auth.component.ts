@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StateService } from '../../core/services/state.service';
-import { UserOnline } from '../../models/userOnline.type';
+import { UserOnline } from '../../core/models/user-online.type';
 import {Subscription} from 'rxjs';
 
 @Component({

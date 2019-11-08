@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Feedback} from '../../../../models/feedback.interface';
+import {Feedback} from '../../../../core/models/feedback.interface';
 
 @Component({
   selector: 'app-feedback',

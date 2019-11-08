@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { UserOnline } from '../../models/userOnline.type';
-import { Feedback } from '../../models/feedback.interface';
-import { CpaPayment } from '../../models/cpaPayment.interface';
+import { UserOnline } from '../models/user-online.type';
+import { Feedback } from '../models/feedback.interface';
+import { CpaPayment } from '../models/cpa-payment.interface';
 
 @Injectable()
 export class StateService {

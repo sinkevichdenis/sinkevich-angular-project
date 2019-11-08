@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
-import { User } from '../../../../models/user.interface';
+import { User } from '../../../../core/models/user.interface';
 import { StateService } from '../../../../core/services/state.service';
 import { AuthService } from '../../services/auth.service';
 

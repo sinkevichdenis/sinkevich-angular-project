@@ -4,9 +4,9 @@ import { map } from 'rxjs/internal/operators';
 import { PaymentService } from '../../services/payment.service';
 import { StateService } from '../../../../core/services/state.service';
 import { CategoryService } from '../../services/category.service';
-import { DateRange } from '../../../../models/dateRange.interface';
-import { CpaPayment } from '../../../../models/cpaPayment.interface';
-import { CpaCategory } from '../../../../models/cpaCategory.interface';
+import { DateRange } from '../../../../core/models/date-range.interface';
+import { CpaPayment } from '../../../../core/models/cpa-payment.interface';
+import { CpaCategory } from '../../../../core/models/cpa-category.interface';
 
 @Component({
   selector: 'app-history-page',

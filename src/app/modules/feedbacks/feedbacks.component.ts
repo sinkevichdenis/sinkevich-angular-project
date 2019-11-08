@@ -3,8 +3,8 @@ import {Observable, of, Subscription} from 'rxjs';
 import {map, skip, take, tap} from 'rxjs/internal/operators';
 import { StateService } from '../../core/services/state.service';
 import { FeedbackService } from './services/feedback.service';
-import { Feedback } from '../../models/feedback.interface';
-import { UserOnline } from '../../models/userOnline.type';
+import { Feedback } from '../../core/models/feedback.interface';
+import { UserOnline } from '../../core/models/user-online.type';
 
 @Component({
   selector: 'app-feedbacks-page',

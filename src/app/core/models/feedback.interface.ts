@@ -1,4 +1,4 @@
-import { UserDefault } from './userDefault.interface';
+import { UserDefault } from './user-default.interface';
 
 export interface Feedback extends UserDefault {
   text: string;

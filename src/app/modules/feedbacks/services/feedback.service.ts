@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { map, skip } from 'rxjs/internal/operators';
 import { FirebaseService } from '../../../core/services/firebase.service';
 import { StateService } from '../../../core/services/state.service';
-import { UserOnline } from '../../../models/userOnline.type';
-import { Feedback } from '../../../models/feedback.interface';
+import { UserOnline } from '../../../core/models/user-online.type';
+import { Feedback } from '../../../core/models/feedback.interface';
 
 @Injectable()
 export class FeedbackService {

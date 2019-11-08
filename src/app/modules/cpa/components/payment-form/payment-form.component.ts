@@ -5,9 +5,9 @@ import { Observable, Subscription } from 'rxjs';
 import { CategoryService } from '../../services/category.service';
 import { PaymentService } from '../../services/payment.service';
 import { StateService } from '../../../../core/services/state.service';
-import { CpaCategory } from '../../../../models/cpaCategory.interface';
-import { CpaPayment } from '../../../../models/cpaPayment.interface';
-import { UserOnline } from '../../../../models/userOnline.type';
+import { CpaCategory } from '../../../../core/models/cpa-category.interface';
+import { CpaPayment } from '../../../../core/models/cpa-payment.interface';
+import { UserOnline } from '../../../../core/models/user-online.type';
 
 @Component({
   selector: 'app-payment-form',
