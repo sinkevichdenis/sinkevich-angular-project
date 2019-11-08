@@ -1,5 +1,13 @@
-<app-accordion>
-  <app-history-element></app-history-element>
-  <app-history-element></app-history-element>
-  <app-history-element></app-history-element>
+<h2 *ngIf = "paymentList.length === 0">
+  Пусто
+</h2>
+<app-accordion
+  *ngFor="let items of paymentList"
+  [title]="getTitle(items[0]?.catId)"
+  [totalValue]="getTotalValue(items)">
+
+   <ng-template ngFor let-x [ngForOf]="items">
+     <app-history-element [payment]='x'></app-history-element>
+   </ng-template>
+
 </app-accordion>

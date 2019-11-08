@@ -1,13 +1,21 @@
 <div class="container">
   <div class="history container-form">
-    <app-date-range-form></app-date-range-form>
+    <app-date-range-form (dateRange)="initGetData($event)"></app-date-range-form>
   </div>
 
   <div class="history container-minus">
-    <app-history-list></app-history-list>
+    <app-history-list
+      [payments$] = "payments$"
+      [categories$]= "categories$"
+      [statusFilter]= false>
+    </app-history-list>
   </div>
 
   <div class="history container-plus">
-    <app-history-list></app-history-list>
+    <app-history-list
+      [payments$] = "payments$"
+      [categories$]= "categories$"
+      [statusFilter]= true>
+    </app-history-list>
   </div>
 </div>

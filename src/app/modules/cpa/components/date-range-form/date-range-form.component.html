@@ -1,4 +1,4 @@
-<form [formGroup]="rangeForm">
+<form [formGroup]="rangeForm" >
   <div class="wrapper">
     <span> Показать платежи </span>
     <div class="wrapper-datepicker">
@@ -11,8 +11,9 @@
     </div>
 
     <button
+      type="submit"
       class="button-rect"
-      (click)="onSubmit()"
+      (click)="postDateRange()"
       [disabled]="fromDate.errors?.required || toDate.errors?.required">
       Показать
     </button>

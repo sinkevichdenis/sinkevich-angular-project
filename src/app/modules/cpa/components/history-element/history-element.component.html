@@ -1,9 +1,9 @@
 <div class="wrapper-elem">
   <div class="wrapper-text">
-    <p class="date">Date date</p>
-    <p class="text">history-element works!</p>
+    <p class="date">{{payment.date | date: 'short'}}</p>
+    <p class="text" *ngIf="payment.text">{{payment.text}}</p>
   </div>
-    <p class="value">цена</p>
+    <p class="value">{{payment.value | currency: 'BYN'}}</p>
   <div class="wrapper-buttons">
     <ng-container *ngIf="editable">
       <div class="button btn-agree" (click)="agree()">

@@ -1,12 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {AbstractControl, FormBuilder, Validators} from '@angular/forms';
+import {DateRange} from '../../../../models/dateRange.interface';
 
 @Component({
   selector: 'app-date-range-form',
   templateUrl: './date-range-form.component.html',
   styleUrls: ['./date-range-form.component.sass']
 })
-export class DateRangeFormComponent implements OnInit {
+export class DateRangeFormComponent {
+  @Output() dateRange: EventEmitter<DateRange> = new EventEmitter();
 
   public rangeForm = this.fb.group({
     fromDate: [new Date(), Validators.required],
@@ -17,9 +19,6 @@ export class DateRangeFormComponent implements OnInit {
     private fb: FormBuilder
   ) { }
 
-  ngOnInit() {
-  }
-
   get fromDate(): AbstractControl {
     return this.rangeForm.get('fromDate');
   }
@@ -28,8 +27,22 @@ export class DateRangeFormComponent implements OnInit {
     return this.rangeForm.get('toDate');
   }
 
-  onSubmit() {
-
+  private getStartDay(date: string): number {
+    return new Date(date).setHours(0, 0, 0, 0);
   }
 
+  private getEndDay(date: string): number {
+    return new Date(date).setHours(23, 59, 59, 999);
+  }
+
+  createPostData(): DateRange {
+    return {
+      fromDate: this.getStartDay(this.fromDate.value),
+      toDate: this.getEndDay(this.toDate.value),
+    };
+  }
+
+  postDateRange(): void {
+    this.dateRange.emit(this.createPostData());
+  }
 }

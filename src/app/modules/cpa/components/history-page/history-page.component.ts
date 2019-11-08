@@ -1,4 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/internal/operators';
+import { PaymentService } from '../../services/payment.service';
+import { StateService } from '../../../../core/services/state.service';
+import { CategoryService } from '../../services/category.service';
+import { DateRange } from '../../../../models/dateRange.interface';
+import { CpaPayment } from '../../../../models/cpaPayment.interface';
+import { CpaCategory } from '../../../../models/cpaCategory.interface';
 
 @Component({
   selector: 'app-history-page',
@@ -6,10 +14,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./history-page.component.sass']
 })
 export class HistoryPageComponent implements OnInit {
+  private dateRange: DateRange;
+  private payments$: null | Observable<CpaPayment[]>;
+  private categories$: null | Observable<CpaCategory[]>;
 
-  constructor() { }
+  constructor(
+    private paymentService: PaymentService,
+    private categoryService: CategoryService,
+    private state: StateService
+  ) { }
 
   ngOnInit() {
+    this.payments$ = null;
+    this.categories$ = null;
+    this.state.payDir$.next(null);
+  }
+
+  initGetData(data: DateRange): void {
+    this.dateRange = Object.assign({}, data);
+    this.getPayments(this.dateRange).subscribe(items => this.payments$ = of(items));
+    this.categoryService.get().subscribe(items => this.categories$ = of(items));
+  }
+
+  getAllPayments(): Observable<CpaPayment[]> {
+    return this.paymentService.get();
+  }
+
+  getPayments(dateRange: DateRange): Observable<CpaPayment[]> {
+    return this.getAllPayments().pipe(
+      map (items => items.filter(item => item.date >= dateRange.fromDate && item.date <= dateRange.toDate))
+    );
   }
 
 }
