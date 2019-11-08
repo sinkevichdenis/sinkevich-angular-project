@@ -8,7 +8,6 @@ import { FirebaseService } from './services/firebase.service';
 import { StateService } from './services/state.service';
 
 @NgModule({
-  declarations: [],
   imports: [
     CommonModule,
     AngularFireModule.initializeApp(environment.firebase),
