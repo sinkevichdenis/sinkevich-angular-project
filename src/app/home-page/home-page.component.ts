@@ -50,7 +50,7 @@ export class HomePageComponent {
         'Сколько нужно отложить'
       ],
       summary: 'Финансы под контролем',
-      color: '#ffff00d4'
+      color: '#ffff00'
     }, {
       title: 'Планирование завтра',
       text: [
@@ -59,7 +59,7 @@ export class HomePageComponent {
         'Откладывайте больш'
       ],
       summary: 'Будущее прекрасно',
-      color: '#0087ffc7'
+      color: '#0087ff'
     }
   ];
 }
