@@ -9,7 +9,7 @@ import { AccountPageComponent } from '../account-page/account-page.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
 
 const routes: Routes = [
-  { path: '', component: HomePageComponent, pathMatch: 'full' },
+  { path: '', loadChildren: '../home-page/home-page.module#HomePageModule' },
   {
     path: 'account',
     component: AccountPageComponent,
@@ -17,9 +17,9 @@ const routes: Routes = [
     canActivateChild: [AuthGuard],
     loadChildren: '../cpa/cpa.module#CpaModule'
   },
-  { path: 'contacts', component: ContactsPageComponent, pathMatch: 'full'},
+  { path: 'contacts', loadChildren: '../contacts-page/contacts-page.module#ContactsPageModule'},
   { path: 'feedbacks', loadChildren: '../feedbacks-page/feedbacks-page.module#FeedbacksPageModule'},
-  { path: '**', component: ErrorPageComponent }
+  { path: '**', loadChildren: '../error-page/error-page.module#ErrorPageModule'}
 ];
 
 @NgModule({
