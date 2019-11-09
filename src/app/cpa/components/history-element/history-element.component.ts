@@ -13,9 +13,9 @@ import { CpaPayment } from '../../../core/models/cpa-payment.interface';
 })
 export class HistoryElementComponent {
   @Input() payment: CpaPayment;
-  private editable = false;
   private delete$: Observable<CpaPayment> | null = null;
   private edit$: Observable<CpaPayment> | null = null;
+  editable = false;
 
   constructor(
     private paymentService: PaymentService,

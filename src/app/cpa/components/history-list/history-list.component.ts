@@ -14,7 +14,7 @@ export class HistoryListComponent implements OnChanges {
   @Input() categories$: null | Observable<CpaCategory[]>;
   @Input() statusFilter: boolean;
   private categories: CpaCategory[];
-  private paymentList: any[] = [];
+  paymentList: any[] = [];
 
   ngOnChanges() {
     if ( this.categories$ && this.payments$) {

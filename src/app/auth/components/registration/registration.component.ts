@@ -12,7 +12,7 @@ import { User } from '../../../core/models/user.interface';
 export class RegistrationComponent {
   private emailRegEx = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
 
-  private regForm = this.fb.group({
+  regForm = this.fb.group({
     name: ['', Validators.required, [this.checkName.bind(this)]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     confirmPassword: ['', Validators.required],

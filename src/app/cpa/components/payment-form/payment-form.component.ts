@@ -17,15 +17,15 @@ import { UserOnline } from '../../../core/models/user-online.type';
 export class PaymentFormComponent implements OnInit, OnDestroy {
   @Input() public mainColor;
   readonly maxLength = 25;
-  private categories: Observable<CpaCategory[]>;
   private user: UserOnline;
   private payDir: PayDir;
   private editPaymentItem: CpaPayment | null;
   private subscrUser: Subscription;
   private subscrDir: Subscription;
   private subscrEdit: Subscription;
+  categories: Observable<CpaCategory[]>;
 
-  private payForm = this.fb.group({
+  payForm = this.fb.group({
     date: [new Date(), Validators.required],
     category: ['', Validators.required],
     value: ['', Validators.required],

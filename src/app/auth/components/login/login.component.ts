@@ -9,13 +9,12 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.component.html'
 })
 export class LoginComponent {
-  private users: User[];
-  private isFormValid = true;
-
-  private logForm = this.fb.group({
+  isFormValid = true;
+  logForm = this.fb.group({
     name: ['admin', Validators.required],
     password: ['111111', Validators.required]
   });
+  private users: User[];
 
   constructor(
     private fb: FormBuilder,

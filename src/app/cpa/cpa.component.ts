@@ -36,8 +36,8 @@ export class CpaComponent implements  OnInit, OnDestroy {
     }
   ];
 
-  private user: UserOnline;
   private subscrUser: Subscription;
+  user: UserOnline;
 
   constructor(
     private router: Router,

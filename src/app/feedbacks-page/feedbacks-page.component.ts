@@ -11,16 +11,16 @@ import { UserOnline } from '../core/models/user-online.type';
   styleUrls: ['./feedbacks-page.component.sass']
 })
 export class FeedbacksPageComponent implements OnInit, OnDestroy {
-  private subscrUser: Subscription;
-  private subscrFeed: Subscription;
-  private feedbacks: Observable<Feedback[]>;
-  private feedbacksCurrent: Observable<Feedback[]>;
-  private user: UserOnline;
-
+  user: UserOnline;
   lowValue = 0;
   highValue = 5;
   lengthFeedArr: number;
+  feedbacksCurrent: Observable<Feedback[]>;
+  feedbacks: Observable<Feedback[]>;
+
   readonly pageSize = this.highValue - this.lowValue;
+  private subscrUser: Subscription;
+  private subscrFeed: Subscription;
 
   constructor(
     private state: StateService

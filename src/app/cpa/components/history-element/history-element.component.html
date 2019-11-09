@@ -6,7 +6,7 @@
     <p class="value">{{payment.value | currency: 'BYN'}}</p>
   <div class="wrapper-buttons">
     <ng-container *ngIf="editable">
-      <div class="button btn-agree" (click)="agree(payment)">
+      <div class="button btn-agree" (click)="agree()">
         <img src="./assets/icons/agree-icon.png" alt="agree-icon">
       </div>
       <div class="button btn-agree" (click)="cancel()">

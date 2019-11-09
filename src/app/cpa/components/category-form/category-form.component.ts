@@ -15,12 +15,12 @@ export class CategoryFormComponent implements OnInit, AfterViewInit, OnDestroy {
   private payDir: PayDir;
   private user: UserOnline;
   private categories: CpaCategory[];
-  private editableStatus = false;
   private input: HTMLElement;
   private subscrUser: Subscription;
   private subscrDir: Subscription;
+  editableStatus = false;
 
-  private catForm = this.fb.group({
+  catForm = this.fb.group({
     title: ['', Validators.required, this.checkTitle.bind(this)],
     newTitle: ['', Validators.required, this.checkTitle.bind(this)]
   });

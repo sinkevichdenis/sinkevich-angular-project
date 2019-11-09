@@ -10,8 +10,8 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./auth.component.sass']
 })
 export class AuthComponent implements OnInit, OnDestroy {
-  private user: UserOnline;
   private subscrUser: Subscription;
+  user: UserOnline;
 
   constructor(private router: Router, private state: StateService) {}
 

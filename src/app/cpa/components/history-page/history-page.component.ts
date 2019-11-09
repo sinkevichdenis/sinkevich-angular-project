@@ -14,9 +14,9 @@ import { CpaCategory } from '../../../core/models/cpa-category.interface';
   styleUrls: ['./history-page.component.sass']
 })
 export class HistoryPageComponent implements OnInit {
+  payments$: null | Observable<CpaPayment[]>;
+  categories$: null | Observable<CpaCategory[]>;
   private dateRange: DateRange;
-  private payments$: null | Observable<CpaPayment[]>;
-  private categories$: null | Observable<CpaCategory[]>;
 
   constructor(
     private paymentService: PaymentService,

@@ -13,7 +13,7 @@ export class FeedbackFormComponent {
   @Input() user: UserOnline;
   readonly maxLength = 1000;
 
-  private feedForm = this.fb.group({
+  feedForm = this.fb.group({
     text: [null, [Validators.required, Validators.maxLength(this.maxLength)]]
   });
 
