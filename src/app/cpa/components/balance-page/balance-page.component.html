@@ -4,14 +4,14 @@
   </div>
 
   <div class="balance container-minus">
-    <app-balance-container>
+    <app-balance-container [payments$]="filterPayments(false)">
       <span class="title">Потрачено</span>
       <div class="button" (click)="goToPage(false)">+</div>
     </app-balance-container>
   </div>
 
   <div class="balance container-plus">
-    <app-balance-container>
+    <app-balance-container [payments$]="filterPayments(true)">
       <span class="title">Получено</span>
       <div class="button" (click)="goToPage(true)">+</div>
     </app-balance-container>
