@@ -7,10 +7,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="CourseProject" content="it's angular project">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <style>
+    #spinner {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
 </head>
 <body>
   <app-root>
-    loading...
+    <img id="spinner" src="./assets/spinner.gif">
   </app-root>
 </body>
 </html>
