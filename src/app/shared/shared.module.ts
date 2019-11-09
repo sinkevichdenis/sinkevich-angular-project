@@ -24,6 +24,8 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
     MatExpansionModule
   ],
   exports: [
+    CommonModule,
+    ReactiveFormsModule,
     DatepickerComponent,
     PaginatorComponent,
     AccordionComponent,

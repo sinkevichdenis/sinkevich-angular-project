@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 import { BenefitComponent } from './components/benefit/benefit.component';
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { SlideComponent } from './components/slide/slide.component';
@@ -15,7 +15,7 @@ import { HomePageComponent } from './home-page.component';
     SpeechComponent
   ],
   imports: [
-    CommonModule
+    SharedModule
   ]
 })
 export class HomePageModule { }

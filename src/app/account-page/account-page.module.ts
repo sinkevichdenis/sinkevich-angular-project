@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 import { CpaModule } from '../cpa/cpa.module';
 import { AuthModule } from '../auth/auth.module';
 import { MatTabsModule } from '@angular/material/tabs';
@@ -11,7 +11,7 @@ import { AccountPageComponent } from './account-page.component';
     AccountPageComponent
   ],
   imports: [
-    CommonModule,
+    SharedModule,
     CpaModule,
     MatTabsModule,
     AuthModule

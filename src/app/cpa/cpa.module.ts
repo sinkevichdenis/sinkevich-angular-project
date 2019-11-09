@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Route, RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 
 // library modules
 import { MatToolbarModule } from '@angular/material';
@@ -62,11 +60,9 @@ const routes: Route[] = [
     HistoryElementComponent
   ],
   imports: [
-    CommonModule,
     RouterModule.forChild(routes),
     MatTabsModule,
     MatToolbarModule,
-    ReactiveFormsModule,
     SharedModule
   ],
   exports: [

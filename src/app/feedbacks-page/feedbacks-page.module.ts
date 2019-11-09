@@ -1,6 +1,4 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 import { Route, RouterModule } from '@angular/router';
 import { SharedModule } from '../shared/shared.module';
 import { FeedbacksResolver } from './guards/feedbacks.resolver';
@@ -24,9 +22,7 @@ const routes: Route[] = [{
     FeedbackComponent
   ],
   imports: [
-    CommonModule,
     SharedModule,
-    ReactiveFormsModule,
     RouterModule.forChild(routes),
   ],
   providers: [
