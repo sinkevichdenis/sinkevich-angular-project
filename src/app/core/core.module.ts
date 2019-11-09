@@ -6,6 +6,7 @@ import { environment } from '../../environments/environment';
 import { FirebaseService } from './services/firebase.service';
 import { StateService } from './services/state.service';
 import { DateOptionsService } from './services/date-options.service';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { DateOptionsService } from './services/date-options.service';
   providers: [
     FirebaseService,
     StateService,
-    DateOptionsService
+    DateOptionsService,
+    AuthGuard
   ]
 })
 export class CoreModule { }

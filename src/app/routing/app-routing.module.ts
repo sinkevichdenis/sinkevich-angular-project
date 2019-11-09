@@ -1,10 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
-
-// main pages
-import { HomePageComponent } from '../home-page/home-page.component';
-import { ErrorPageComponent } from '../error-page/error-page.component';
-import { ContactsPageComponent } from '../contacts-page/contacts-page.component';
 import { AccountPageComponent } from '../account-page/account-page.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
 

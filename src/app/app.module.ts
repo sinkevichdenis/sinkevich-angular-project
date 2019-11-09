@@ -5,7 +5,6 @@ import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
 
 import { AppRoutingModule } from './routing/app-routing.module';
-import { AuthGuard } from './auth/guards/auth.guard';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
@@ -39,9 +38,8 @@ registerLocaleData(localeRu, 'ru');
     ErrorPageModule
   ],
   providers: [
-    AuthGuard,
     { provide: LOCALE_ID, useValue: 'ru' }
-    ],
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
