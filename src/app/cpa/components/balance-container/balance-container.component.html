@@ -3,13 +3,16 @@
     <ng-content select=".title"></ng-content>
   </p>
   <div class="balance-part">
-    <p class="balanc-part_day"> День: <span>{{100 | currency}}</span> </p>
+    <span class="balanc-subtitle">День:</span>
+    <span class="balanc-part_day">{{reducePayments(startOfDay) | async | currency: "BYN"}}</span>
   </div>
   <div class="balance-part">
-    <p class="balanc-part_week"> Неделя: <span>{{1000 | currency}}</span> </p>
+    <span class="balanc-subtitle">Неделя:</span>
+    <span class="balanc-part_week">{{reducePayments(startOfWeek) | async | currency: "BYN"}}</span>
   </div>
   <div class="balance-part">
-    <p class="balanc-part_month"> Месяц: <span>{{7000 | currency}}</span> </p>
+    <span class="balanc-subtitle">Месяц:</span>
+    <span class="balanc-part_month">{{reducePayments(startOfMonth) | async | currency: "BYN"}}</span>
   </div>
   <button>
     <ng-content select=".button"> </ng-content>
