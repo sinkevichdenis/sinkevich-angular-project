@@ -5,7 +5,7 @@ import { StateService } from '../../../core/services/state.service';
   selector: 'app-minus-page',
   templateUrl: './minus-page.component.html'
 })
-export class MinusPageComponent implements OnInit{
+export class MinusPageComponent implements OnInit {
   public mainColor = 'red';
   public status = false;
 

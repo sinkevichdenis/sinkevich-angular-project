@@ -4,12 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule, MatToolbarModule } from '@angular/material';
 import { MatTabsModule } from '@angular/material/tabs';
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
-import { MatExpansionModule } from '@angular/material/expansion'
+import { MatExpansionModule } from '@angular/material/expansion';
+import { RouterModule } from '@angular/router';
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
-import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
