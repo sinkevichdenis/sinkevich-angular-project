@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 
-// library modules
-import { MatToolbarModule } from '@angular/material';
-import { MatTabsModule } from '@angular/material/tabs';
 import { SharedModule } from '../shared/shared.module';
 
 // feature components
@@ -61,8 +58,6 @@ const routes: Route[] = [
   ],
   imports: [
     RouterModule.forChild(routes),
-    MatTabsModule,
-    MatToolbarModule,
     SharedModule
   ],
   exports: [

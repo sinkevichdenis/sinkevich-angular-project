@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatPaginatorModule } from '@angular/material';
+import { MatPaginatorModule, MatToolbarModule } from '@angular/material';
+import { MatTabsModule } from '@angular/material/tabs';
 import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 import { MatExpansionModule } from '@angular/material/expansion'
 import { DatepickerComponent } from './components/datepicker/datepicker.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { CalculatorComponent } from './components/calculator/calculator.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,19 @@ import { CalculatorComponent } from './components/calculator/calculator.componen
   ],
   imports: [
     CommonModule,
+    RouterModule,
     ReactiveFormsModule,
     AngularDateTimePickerModule,
     MatPaginatorModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatTabsModule,
+    MatToolbarModule
   ],
   exports: [
     CommonModule,
+    MatTabsModule,
+    MatToolbarModule,
+    RouterModule,
     ReactiveFormsModule,
     DatepickerComponent,
     PaginatorComponent,
