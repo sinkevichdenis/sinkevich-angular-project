@@ -2,7 +2,7 @@ import { TestBed } from '@angular/core/testing';
 
 import { FeedbacksResolver } from './feedbacks.resolver';
 
-describe('Feedbacks.ResolverService', () => {
+describe('FeedbacksResolver', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
