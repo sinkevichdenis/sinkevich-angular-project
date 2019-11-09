@@ -1,6 +1,6 @@
 <div class="container balance-page">
   <div class="container-total ">
-    <p>На Вашем балансе {{10777 | currency}}.</p>
+    <p>На Вашем балансе {{countTotalBalance() | async | currency: 'BYN'}}.</p>
   </div>
 
   <div class="balance container-minus">
