@@ -32,12 +32,10 @@ export class LoginComponent {
 
   validateUser( name = this.name.value, password = this.password.value ): void {
     const visitor = this.users.find(item => item.name === name);
-    console.log('visitor', visitor);
     let streamNext = null;
 
     if (visitor) {
       streamNext = (visitor.password === password) ? Object.assign({}, visitor) : null;
-      console.log('enter', JSON.stringify(streamNext));
       this.state.userOnline$.next(streamNext);
     }
 
